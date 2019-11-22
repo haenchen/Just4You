@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Just4You.Modules.BasicCalculator
 {
-    public enum TokenType
+    internal enum TokenType
     {
         T_INT,
         T_FLOAT,
@@ -20,7 +20,7 @@ namespace Just4You.Modules.BasicCalculator
         T_WHITESPACE,
     }
 
-    public class Token
+    internal class Token
     {
         private TokenType type;
         private String lexeme;

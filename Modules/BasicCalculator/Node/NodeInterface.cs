@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Just4You.Modules.BasicCalculator.Node
 {
-    public interface NodeInterface
+    internal interface NodeInterface
     {
         Scalar Calculate();
     }

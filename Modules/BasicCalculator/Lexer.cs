@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 
 namespace Just4You.Modules.BasicCalculator
 {
-    public static class Lexer
+    internal static class Lexer
     {
         private static Dictionary<TokenType, Regex> matches;
 
