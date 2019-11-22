@@ -50,6 +50,18 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modules\BasicCalculator\BasicCalculator.cs" />
+    <Compile Include="Modules\BasicCalculator\Lexer.cs" />
+    <Compile Include="Modules\BasicCalculator\Node\NodeInterface.cs" />
+    <Compile Include="Modules\BasicCalculator\Node\Operator\Add.cs" />
+    <Compile Include="Modules\BasicCalculator\Node\Operator\BinaryOperator.cs" />
+    <Compile Include="Modules\BasicCalculator\Node\Operator\Div.cs" />
+    <Compile Include="Modules\BasicCalculator\Node\Operator\Mod.cs" />
+    <Compile Include="Modules\BasicCalculator\Node\Operator\Mul.cs" />
+    <Compile Include="Modules\BasicCalculator\Node\Operator\Sub.cs" />
+    <Compile Include="Modules\BasicCalculator\Node\Scalar.cs" />
+    <Compile Include="Modules\BasicCalculator\Parser.cs" />
+    <Compile Include="Modules\BasicCalculator\Token.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
