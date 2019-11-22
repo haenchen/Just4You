@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Just4You.Modules.BasicCalculator.Node.Operator
 {
-    class Mul : BinaryOperator
+    internal class Mul : BinaryOperator
     {
         public Mul(NodeInterface lValue, NodeInterface rValue) : base(lValue, rValue)
         {

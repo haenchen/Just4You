@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Just4You.Modules.BasicCalculator
 {
-    public static class Parser
+    internal static class Parser
     {
         public static NodeInterface GetAst(List<Token> tokens)
         {
