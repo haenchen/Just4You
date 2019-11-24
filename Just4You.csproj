@@ -51,10 +51,10 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GlobalLogger.cs" />
-    <Compile Include="ModuleForm.cs">
+    <Compile Include="Modules\ModuleForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ModuleForm.Designer.cs">
+    <Compile Include="Modules\ModuleForm.Designer.cs">
       <DependentUpon>ModuleForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Modules\BasicCalculator\BasicCalculator.cs" />

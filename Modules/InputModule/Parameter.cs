@@ -16,11 +16,17 @@ namespace Just4You.Modules.InputModule
         {
             get;
         }
+
+        public bool Aborted
+        {
+            get;
+        }
         public Parameter(String name)
         {
             var Form = new InputForm();
             Form.SetLabel(name);
             Form.ShowDialog();
+            Aborted = Form.Aborted;
             Input = Form.GetInput();
             Value = Form.GetValue();
         }
