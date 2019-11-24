@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Just4You.Modules.InputModule;
 
 namespace Just4You
 {
     public abstract partial class ModuleForm : Form
     {
-        protected List<String> output;
+        protected List<String> output = new List<string>();
         protected double result = 0;
         public ModuleForm()
         {
@@ -27,6 +28,17 @@ namespace Just4You
         public double GetResult()
         {
             return result;
+        }
+
+        protected bool ParamAborted(Parameter param)
+        {
+            if (param.Aborted)
+            {
+                result = Double.NaN;
+                this.Close();
+                return true;
+            }
+            return false;
         }
     }
 }

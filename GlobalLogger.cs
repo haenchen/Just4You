@@ -8,7 +8,7 @@ namespace Just4You
 {
     public static class GlobalLogger
     {
-        private static List<String> Log;
+        private static List<String> Log = new List<string>();
 
         private static int OutputIndex = 0;
 
@@ -31,6 +31,7 @@ namespace Just4You
             {
                 TempList.Add(Log[OutputIndex]);
             }
+            QueryIndex = OutputIndex;
             return TempList;
         }
 
