@@ -30,6 +30,11 @@ namespace Just4You
             return result;
         }
 
+        // Das ist leider etwas hacky
+        public void DoModuleFunction()
+        {
+            this.ShowDialog();
+        }
         protected bool ParamAborted(Parameter param)
         {
             if (param.Aborted)
@@ -40,5 +45,7 @@ namespace Just4You
             }
             return false;
         }
+
+        public abstract String GetModuleText();
     }
 }

@@ -171,5 +171,10 @@ namespace Just4You.Modules.MathematicalFunctions
                     return false;
             return true;
         }
+
+        public override String GetModuleText()
+        {
+            return "Mathematische Funktionen";
+        }
     }
 }
