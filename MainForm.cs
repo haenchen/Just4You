@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Just4You.Modules.InputModule;
 using Just4You.Modules.MathematicalFunctions;
+using Just4You.Modules.School;
 
 namespace Just4You
 {
@@ -22,6 +23,10 @@ namespace Just4You
             modules = new Dictionary<int, Type>();
             // Einfach die gewünschten Module eintragen
             modules.Add(1, typeof(MathematicalFunctionChoosingForm));
+            modules.Add(2, typeof(SchoolForm));
+
+            btnModuleOne.Text = ((ModuleForm)Activator.CreateInstance(modules[1])).GetModuleText();
+            btnModuleTwo.Text = ((ModuleForm)Activator.CreateInstance(modules[2])).GetModuleText();
         }
 
         private void AddLine(String line)
@@ -48,7 +53,7 @@ namespace Just4You
         private void BaseModuleFunction(int index)
         {
             var form = (ModuleForm)Activator.CreateInstance(modules[index]);
-            form.ShowDialog();
+            form.DoModuleFunction();
             if (GlobalLogger.NewErrorsExist())
             {
                 AddLines(GlobalLogger.GetRecentErrors());

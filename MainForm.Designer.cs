@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnModule3 = new System.Windows.Forms.Button();
+            this.btnModuleTwo = new System.Windows.Forms.Button();
+            this.btnModuleOne = new System.Windows.Forms.Button();
+            this.btnBasicCalculator = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtHistory = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnBasicCalculator = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnModuleOne = new System.Windows.Forms.Button();
-            this.btnModuleTwo = new System.Windows.Forms.Button();
-            this.btnModule3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -49,42 +49,41 @@
             this.panel1.Controls.Add(this.btnBasicCalculator);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(772, 15);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(267, 364);
             this.panel1.TabIndex = 2;
             // 
-            // panel2
+            // btnModule3
             // 
-            this.panel2.Controls.Add(this.txtHistory);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(16, 15);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(748, 364);
-            this.panel2.TabIndex = 3;
+            this.btnModule3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModule3.Location = new System.Drawing.Point(8, 278);
+            this.btnModule3.Name = "btnModule3";
+            this.btnModule3.Size = new System.Drawing.Size(256, 80);
+            this.btnModule3.TabIndex = 4;
+            this.btnModule3.Text = "button3";
+            this.btnModule3.UseVisualStyleBackColor = true;
             // 
-            // txtHistory
+            // btnModuleTwo
             // 
-            this.txtHistory.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtHistory.Location = new System.Drawing.Point(4, 21);
-            this.txtHistory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtHistory.Multiline = true;
-            this.txtHistory.Name = "txtHistory";
-            this.txtHistory.ReadOnly = true;
-            this.txtHistory.Size = new System.Drawing.Size(739, 339);
-            this.txtHistory.TabIndex = 3;
+            this.btnModuleTwo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModuleTwo.Location = new System.Drawing.Point(8, 192);
+            this.btnModuleTwo.Name = "btnModuleTwo";
+            this.btnModuleTwo.Size = new System.Drawing.Size(256, 80);
+            this.btnModuleTwo.TabIndex = 3;
+            this.btnModuleTwo.Text = "button2";
+            this.btnModuleTwo.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // btnModuleOne
             // 
-            this.label1.AutoSize = true;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Location = new System.Drawing.Point(4, 0);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 17);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Verlauf";
+            this.btnModuleOne.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModuleOne.Location = new System.Drawing.Point(8, 106);
+            this.btnModuleOne.Name = "btnModuleOne";
+            this.btnModuleOne.Size = new System.Drawing.Size(256, 80);
+            this.btnModuleOne.TabIndex = 2;
+            this.btnModuleOne.Text = "button1";
+            this.btnModuleOne.UseVisualStyleBackColor = true;
+            this.btnModuleOne.Click += new System.EventHandler(this.btnModuleOne_Click);
             // 
             // btnBasicCalculator
             // 
@@ -107,36 +106,37 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Funktionen";
             // 
-            // btnModuleOne
+            // panel2
             // 
-            this.btnModuleOne.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModuleOne.Location = new System.Drawing.Point(8, 106);
-            this.btnModuleOne.Name = "btnModuleOne";
-            this.btnModuleOne.Size = new System.Drawing.Size(256, 80);
-            this.btnModuleOne.TabIndex = 2;
-            this.btnModuleOne.Text = "Mathematische Funktionen";
-            this.btnModuleOne.UseVisualStyleBackColor = true;
-            this.btnModuleOne.Click += new System.EventHandler(this.btnModuleOne_Click);
+            this.panel2.Controls.Add(this.txtHistory);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Location = new System.Drawing.Point(16, 15);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(748, 364);
+            this.panel2.TabIndex = 3;
             // 
-            // btnModuleTwo
+            // txtHistory
             // 
-            this.btnModuleTwo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModuleTwo.Location = new System.Drawing.Point(8, 192);
-            this.btnModuleTwo.Name = "btnModuleTwo";
-            this.btnModuleTwo.Size = new System.Drawing.Size(256, 80);
-            this.btnModuleTwo.TabIndex = 3;
-            this.btnModuleTwo.Text = "button3";
-            this.btnModuleTwo.UseVisualStyleBackColor = true;
+            this.txtHistory.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtHistory.Location = new System.Drawing.Point(4, 21);
+            this.txtHistory.Margin = new System.Windows.Forms.Padding(4);
+            this.txtHistory.Multiline = true;
+            this.txtHistory.Name = "txtHistory";
+            this.txtHistory.ReadOnly = true;
+            this.txtHistory.Size = new System.Drawing.Size(739, 339);
+            this.txtHistory.TabIndex = 3;
             // 
-            // btnModule3
+            // label1
             // 
-            this.btnModule3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModule3.Location = new System.Drawing.Point(8, 278);
-            this.btnModule3.Name = "btnModule3";
-            this.btnModule3.Size = new System.Drawing.Size(256, 80);
-            this.btnModule3.TabIndex = 4;
-            this.btnModule3.Text = "button4";
-            this.btnModule3.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.Location = new System.Drawing.Point(4, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 17);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Verlauf";
             // 
             // MainForm
             // 
@@ -145,7 +145,7 @@
             this.ClientSize = new System.Drawing.Size(1072, 394);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
