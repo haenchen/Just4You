@@ -19,3 +19,4 @@ D:\Schule\Just4You\obj\Debug\Just4You.csproj.GenerateResource.cache
 D:\Schule\Just4You\obj\Debug\Just4You.exe
 D:\Schule\Just4You\obj\Debug\Just4You.pdb
 D:\Schule\Just4You\obj\Debug\Just4You.MainForm.resources
+D:\Schule\Just4You\obj\Debug\Just4You.Modules.Informatics.InformaticsFunctionChoosingForm.resources

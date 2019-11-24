@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnModule3 = new System.Windows.Forms.Button();
+            this.btnModuleThree = new System.Windows.Forms.Button();
             this.btnModuleTwo = new System.Windows.Forms.Button();
             this.btnModuleOne = new System.Windows.Forms.Button();
             this.btnBasicCalculator = new System.Windows.Forms.Button();
@@ -43,7 +43,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnModule3);
+            this.panel1.Controls.Add(this.btnModuleThree);
             this.panel1.Controls.Add(this.btnModuleTwo);
             this.panel1.Controls.Add(this.btnModuleOne);
             this.panel1.Controls.Add(this.btnBasicCalculator);
@@ -54,19 +54,20 @@
             this.panel1.Size = new System.Drawing.Size(267, 364);
             this.panel1.TabIndex = 2;
             // 
-            // btnModule3
+            // btnModuleThree
             // 
-            this.btnModule3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModule3.Location = new System.Drawing.Point(8, 278);
-            this.btnModule3.Name = "btnModule3";
-            this.btnModule3.Size = new System.Drawing.Size(256, 80);
-            this.btnModule3.TabIndex = 4;
-            this.btnModule3.Text = "button3";
-            this.btnModule3.UseVisualStyleBackColor = true;
+            this.btnModuleThree.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModuleThree.Location = new System.Drawing.Point(8, 278);
+            this.btnModuleThree.Name = "btnModuleThree";
+            this.btnModuleThree.Size = new System.Drawing.Size(256, 80);
+            this.btnModuleThree.TabIndex = 4;
+            this.btnModuleThree.Text = "button3";
+            this.btnModuleThree.UseVisualStyleBackColor = true;
+            this.btnModuleThree.Click += new System.EventHandler(this.btnModuleThree_Click);
             // 
             // btnModuleTwo
             // 
-            this.btnModuleTwo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModuleTwo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModuleTwo.Location = new System.Drawing.Point(8, 192);
             this.btnModuleTwo.Name = "btnModuleTwo";
             this.btnModuleTwo.Size = new System.Drawing.Size(256, 80);
@@ -77,7 +78,7 @@
             // 
             // btnModuleOne
             // 
-            this.btnModuleOne.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModuleOne.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModuleOne.Location = new System.Drawing.Point(8, 106);
             this.btnModuleOne.Name = "btnModuleOne";
             this.btnModuleOne.Size = new System.Drawing.Size(256, 80);
@@ -88,7 +89,7 @@
             // 
             // btnBasicCalculator
             // 
-            this.btnBasicCalculator.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBasicCalculator.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBasicCalculator.Location = new System.Drawing.Point(8, 20);
             this.btnBasicCalculator.Name = "btnBasicCalculator";
             this.btnBasicCalculator.Size = new System.Drawing.Size(256, 80);
@@ -163,7 +164,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txtHistory;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnModule3;
+        private System.Windows.Forms.Button btnModuleThree;
         private System.Windows.Forms.Button btnModuleTwo;
         private System.Windows.Forms.Button btnModuleOne;
         private System.Windows.Forms.Button btnBasicCalculator;
