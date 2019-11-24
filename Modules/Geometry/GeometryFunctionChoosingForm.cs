@@ -20,7 +20,44 @@ namespace Just4You.Modules.Geometry
 
         private void btnTriangle_Click(object sender, EventArgs e)
         {
-            
+            var sideA = new Parameter("Seite a");
+            if (ParamAborted(sideA))
+                return;
+            if (sideA.Value < 0)
+            {
+                GlobalLogger.addError("Seitenlänge kann nur positiv sein.");
+                this.Close();
+                return;
+            }
+            var sideB = new Parameter("Seite b");
+            if (ParamAborted(sideB))
+                return;
+            if (sideB.Value < 0)
+            {
+                GlobalLogger.addError("Seitenlänge kann nur positiv sein.");
+                this.Close();
+                return;
+            }
+            var angle = new Parameter("Winkel γ (°)");
+            if (ParamAborted(angle))
+                return;
+            double a = sideA.Value;
+            double b = sideB.Value;
+            double actualAngle = angle.Value % 180;
+            double c = Math.Pow(a, 2) + Math.Pow(b, 2) - (2 * a * b * Math.Cos(actualAngle));
+            double alpha = Math.Acos((-Math.Pow(a, 2) / 2) + (Math.Pow(b,2) / 2) + (Math.Pow(c, 2) / 2));
+            double beta = 180 - actualAngle - alpha;
+            double height = b * Math.Sin(actualAngle);
+            double area = (a * height) / 2;
+            output.Add("Seite a = " + a.ToString().Replace(".", ","));
+            output.Add("Seite b = " + b.ToString().Replace(".", ","));
+            output.Add("Seite c = " + c.ToString().Replace(".", ","));
+            output.Add("Winkel α = " + alpha.ToString().Replace(".", ","));
+            output.Add("Winkel β = " + beta.ToString().Replace(".", ","));
+            output.Add("Winkel γ = " + actualAngle.ToString().Replace(".", ","));
+            output.Add("Höhe h = " + height.ToString().Replace(".", ","));
+            output.Add("Fläche A = " + area.ToString().Replace(".", ","));
+            this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
