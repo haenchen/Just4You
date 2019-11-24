@@ -31,7 +31,7 @@ namespace Just4You
         }
 
         // Das ist leider etwas hacky
-        public void DoModuleFunction()
+        public virtual void DoModuleFunction()
         {
             this.ShowDialog();
         }

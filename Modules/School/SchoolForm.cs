@@ -19,7 +19,7 @@ namespace Just4You.Modules.School
         }
 
         // Es tut mir Leid, Götter des guten Codes
-        public new void DoModuleFunction()
+        public override void DoModuleFunction()
         {
             var count = new Parameter("Notenanzahl");
             var grades = new List<int>();
@@ -40,6 +40,7 @@ namespace Just4You.Modules.School
                 if (param.Value % 1 != 0 || param.Value < 1 || param.Value > 6)
                 {
                     result = Double.NaN;
+                    GlobalLogger.addError("Ungültige Note eingegeben: " + param.Value.ToString().Replace(".", ","));
                     this.Close();
                     return;
                 }
@@ -56,7 +57,7 @@ namespace Just4You.Modules.School
             }
             output.Add("Notendurchschnitt von: ");
             output.Add(gradeLine.ToString());
-            output.Add("= " + ((double)(sum / grades.Count)).ToString());
+            output.Add("= " + ((double)sum / grades.Count).ToString());
         }
 
         public override String GetModuleText()

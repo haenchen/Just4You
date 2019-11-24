@@ -62,5 +62,10 @@ namespace Just4You
             var output = form.GetOutput();
             AddLines(output);
         }
+
+        private void btnModuleTwo_Click(object sender, EventArgs e)
+        {
+            BaseModuleFunction(2);
+        }
     }
 }
