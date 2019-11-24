@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Just4You.Modules.InputModule;
 using Just4You.Modules.MathematicalFunctions;
 using Just4You.Modules.School;
+using Just4You.Modules.Informatics;
 
 namespace Just4You
 {
@@ -24,9 +25,11 @@ namespace Just4You
             // Einfach die gewünschten Module eintragen
             modules.Add(1, typeof(MathematicalFunctionChoosingForm));
             modules.Add(2, typeof(SchoolForm));
+            modules.Add(3, typeof(InformaticsFunctionChoosingForm));
 
             btnModuleOne.Text = ((ModuleForm)Activator.CreateInstance(modules[1])).GetModuleText();
             btnModuleTwo.Text = ((ModuleForm)Activator.CreateInstance(modules[2])).GetModuleText();
+            btnModuleThree.Text = ((ModuleForm)Activator.CreateInstance(modules[3])).GetModuleText();
         }
 
         private void AddLine(String line)
@@ -66,6 +69,11 @@ namespace Just4You
         private void btnModuleTwo_Click(object sender, EventArgs e)
         {
             BaseModuleFunction(2);
+        }
+
+        private void btnModuleThree_Click(object sender, EventArgs e)
+        {
+            BaseModuleFunction(3);
         }
     }
 }
