@@ -33,7 +33,6 @@ namespace Just4You
         {
             if (param.Aborted)
             {
-                result = Double.NaN;
                 this.Close();
                 return true;
             }

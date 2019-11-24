@@ -28,7 +28,6 @@ namespace Just4You.Modules.School
             if (count.Value < 1 || count.Value % 1 != 0)
             {
                 GlobalLogger.addError("Ungültige Anzahl von Noten eingegeben");
-                result = Double.NaN;
                 this.Close();
                 return;
             }
@@ -39,7 +38,6 @@ namespace Just4You.Modules.School
                     return;
                 if (param.Value % 1 != 0 || param.Value < 1 || param.Value > 6)
                 {
-                    result = Double.NaN;
                     GlobalLogger.addError("Ungültige Note eingegeben: " + param.Value.ToString().Replace(".", ","));
                     this.Close();
                     return;
