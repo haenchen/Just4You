@@ -51,6 +51,12 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="GlobalLogger.cs" />
+    <Compile Include="ModuleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleForm.Designer.cs">
+      <DependentUpon>ModuleForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modules\BasicCalculator\BasicCalculator.cs" />
     <Compile Include="Modules\BasicCalculator\Lexer.cs" />
     <Compile Include="Modules\BasicCalculator\Node\NodeInterface.cs" />
@@ -70,6 +76,12 @@
       <DependentUpon>InputForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Modules\InputModule\Parameter.cs" />
+    <Compile Include="Modules\MathematicalFunctions\MathematicalFunctionChoosingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\MathematicalFunctions\MathematicalFunctionChoosingForm.Designer.cs">
+      <DependentUpon>MathematicalFunctionChoosingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -77,6 +89,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\InputModule\InputForm.resx">
       <DependentUpon>InputForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\MathematicalFunctions\MathematicalFunctionChoosingForm.resx">
+      <DependentUpon>MathematicalFunctionChoosingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

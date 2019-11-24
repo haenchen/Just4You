@@ -14,7 +14,9 @@ namespace Just4You.Modules.InputModule
     public partial class InputForm : Form
     {
 
-        private double Result;
+        private double desult;
+
+        private String input;
         public InputForm()
         {
             InitializeComponent();
@@ -25,9 +27,14 @@ namespace Just4You.Modules.InputModule
             labelParam.Text = labelText;
         }
 
+        public String GetInput()
+        {
+            return input;
+        }
+
         public Double GetValue()
         {
-            return Result;
+            return desult;
         }
 
         private void btnSeven_Click(object sender, EventArgs e)
@@ -134,10 +141,18 @@ namespace Just4You.Modules.InputModule
 
         private void btnEnter_Click(object sender, EventArgs e)
         {
-            Result = BasicCalculator.BasicCalculator.Evaluate(textInput.Text);
+            desult = BasicCalculator.BasicCalculator.Evaluate(textInput.Text);
             if (!GlobalLogger.NewErrorsExist())
             {
-                textInput.Text = Result.ToString().Replace(".", ",");
+                if (Double.TryParse(textInput.Text.Replace(",", "."), out double inputNumber))
+                {
+                    input = input.ToString();
+                }
+                else
+                {
+                    input = "(" + textInput.Text + ")";
+                }
+                textInput.Text = desult.ToString().Replace(".", ",");
                 this.Close();
             }
             btnAbort_Click(sender, e);
