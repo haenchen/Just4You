@@ -26,6 +26,7 @@ namespace Just4You.Modules.MathematicalFunctions
             if (value % 1 != 0)
             {
                 GlobalLogger.addError("Keine Ganzzahl für Fakultätsfunktion angegeben");
+                this.result = Double.NaN;
                 this.Close();
                 return;
             }
@@ -50,10 +51,14 @@ namespace Just4You.Modules.MathematicalFunctions
 
         private double Power(double exponentiationBase, double power, double precision = 0.000001)
         {
-            if (power < 0) return 1 / this.Power(exponentiationBase, - power, precision);
-            if (power >= 10) return Square(this.Power(exponentiationBase, power / 2, precision / 2));
-            if (power >= 1) return exponentiationBase * this.Power(exponentiationBase, power - 1, precision);
-            if (precision >= 1) return SquareRoot(exponentiationBase);
+            if (power < 0)
+                return 1 / this.Power(exponentiationBase, - power, precision);
+            if (power >= 10)
+                return Square(this.Power(exponentiationBase, power / 2, precision / 2));
+            if (power >= 1)
+                return exponentiationBase * this.Power(exponentiationBase, power - 1, precision);
+            if (precision >= 1)
+                return SquareRoot(exponentiationBase);
             return SquareRoot(this.Power(exponentiationBase, power * 2, precision * 2));
         }
 
@@ -65,6 +70,11 @@ namespace Just4You.Modules.MathematicalFunctions
         // Newton Approximation
         private double SquareRoot(double x)
         {
+            if (x < 0)
+            {
+                GlobalLogger.addError("Nur positive Zahlen können radiziert werden.");
+                return Double.NaN;
+            }
             double precision = 0.000001;
             double y = 1.0;
             while (Absolute(x/y - y) > precision)
@@ -90,13 +100,15 @@ namespace Just4You.Modules.MathematicalFunctions
             if (index.Value % 1 != 0)
             {
                 GlobalLogger.addError("Nichtganzzahlige Eingabe für Wurzelexponent");
+                this.result = Double.NaN;
                 this.Close();
                 return;
             }
             var radicand = new Parameter("Radikand");
             if (index.Value < 0 || radicand.Value < 0)
             {
-                GlobalLogger.addError("Negative Eingabe für Wurzelfunktion");
+                GlobalLogger.addError("Nur positive Zahlen können radiziert werden");
+                this.result = Double.NaN;
                 this.Close();
                 return;
             }
