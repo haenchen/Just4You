@@ -16,12 +16,18 @@ namespace Just4You.Modules.Informatics
         public InformaticsFunctionChoosingForm()
         {
             InitializeComponent();
-            var tooltipText = new StringBuilder();
-            tooltipText.Append("Starteinheit:" + Environment.NewLine);
+            var unitTooltipText = new StringBuilder();
+            unitTooltipText.Append("Starteinheit:" + Environment.NewLine);
             for (int i = 0; i < 10; ++i)
-                tooltipText.Append(i.ToString() + " = " + GetUnit(i) + Environment.NewLine);
+                unitTooltipText.Append(i.ToString() + " = " + GetUnit(i) + Environment.NewLine);
             var unitTooltip = new ToolTip();
-            unitTooltip.SetToolTip(btnUnits, tooltipText.ToString());
+            unitTooltip.SetToolTip(btnUnits, unitTooltipText.ToString());
+            var systemTooltipText = new StringBuilder();
+            systemTooltipText.Append("Startsystem:" + Environment.NewLine);
+            for (int i = 0; i < 4; ++i)
+                systemTooltipText.Append(i.ToString() + " = " + GetSystemSuffix(i) + Environment.NewLine);
+            var systemTooltip = new ToolTip();
+            systemTooltip.SetToolTip(btnNumber, systemTooltipText.ToString());
         }
 
         public override String GetModuleText()
@@ -133,7 +139,32 @@ namespace Just4You.Modules.Informatics
 
         private void btnNumber_Click(object sender, EventArgs e)
         {
-
+            var startSystem = new Parameter("Startsystem");
+            if (ParamAborted(startSystem))
+                return;
+            if (startSystem.Value % 1 != 0 || startSystem.Value < 0 || startSystem.Value > 3) {
+                GlobalLogger.addError("Ungültige Eingabe für Startsystem.");
+                result = Double.NaN;
+                this.Close();
+                return;
+            }
+            int system = (int)startSystem.Value;
+            var value = new Parameter("Wert");
+            if (ParamAborted(value))
+                return;
+            if (value.Value % 1 != 0 || value.Value < 0)
+            {
+                GlobalLogger.addError("Nur positive Ganzzahlen werden unterstützt.");
+                result = Double.NaN;
+                this.Close();
+                return;
+            }
+            int actualVal = (int)value.Value;
+            for (int i = 0; i < 4; ++i)
+            {
+                HandleSystem(i, actualVal);
+            }
+            this.Close();
         }
 
         private String GetUnit(int i)
@@ -152,6 +183,39 @@ namespace Just4You.Modules.Informatics
                 case 9: return "YiB";
                 default: return "";
             }
+        }
+
+        private String GetSystemSuffix(int i)
+        {
+            switch (i)
+            {
+                case 0: return "dez";
+                case 1: return "bin";
+                case 2: return "oct";
+                case 3: return "hex";
+                default: return "";
+            }
+        }
+
+        private void HandleSystem(int i, int val)
+        {
+            String result = "";
+            switch(i)
+            {
+                case 0:
+                    result = val.ToString();
+                    break;
+                case 1: 
+                    result = Convert.ToString(val, 2);
+                    break;
+                case 2: 
+                    result = Convert.ToString(val, 8);
+                    break;
+                case 3:
+                    result = Convert.ToString(val, 16);
+                    break;
+            }
+            output.Add(result + " " + GetSystemSuffix(i));
         }
     }
 }
