@@ -49,6 +49,7 @@ namespace Just4You.Modules.Geometry
             double beta = 180 - actualAngle - alpha;
             double height = b * Math.Sin(actualAngle);
             double area = (a * height) / 2;
+            double circumference = a + b + c;
             output.Add("Seite a = " + a.ToString().Replace(".", ","));
             output.Add("Seite b = " + b.ToString().Replace(".", ","));
             output.Add("Seite c = " + c.ToString().Replace(".", ","));
@@ -56,13 +57,55 @@ namespace Just4You.Modules.Geometry
             output.Add("Winkel β = " + beta.ToString().Replace(".", ","));
             output.Add("Winkel γ = " + actualAngle.ToString().Replace(".", ","));
             output.Add("Höhe h = " + height.ToString().Replace(".", ","));
+            output.Add("Umfang U = " + circumference.ToString().Replace(".", ","));
             output.Add("Fläche A = " + area.ToString().Replace(".", ","));
             this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            var sideA = new Parameter("Seite a");
+            if (ParamAborted(sideA))
+                return;
+            if (sideA.Value < 0)
+            {
+                GlobalLogger.addError("Seitenlänge muss positiv sein.");
+                this.Close();
+                return;
+            }
+            double a = sideA.Value;
+            var sideB = new Parameter("Seite a");
+            if (ParamAborted(sideB))
+                return;
+            if (sideB.Value < 0)
+            {
+                GlobalLogger.addError("Seitenlänge muss positiv sein.");
+                this.Close();
+                return;
+            }
+            double b = sideB.Value;
+            var angle = new Parameter("Winkel α (°)");
+            if (ParamAborted(angle))
+                return;
+            double actualAngle = angle.Value % 180;
+            double beta = 180 - actualAngle;
+            double width = a * Math.Sin(beta);
+            double height = b * Math.Sin(actualAngle);
+            double diagonalAlpha = Math.Sqrt(Math.Pow(a, 2) + Math.Pow(b, 2) - (2 * a * b * Math.Cos(beta)));
+            double diagonalBeta = Math.Sqrt(Math.Pow(a, 2) + Math.Pow(b, 2) - (2 * a * b * Math.Cos(actualAngle)));
+            double circumference = (2 * a) + (2 * b);
+            double area = a * height;
+            output.Add("Seite a = " + a.ToString().Replace(".", ","));
+            output.Add("Seite b = " + b.ToString().Replace(".", ","));
+            output.Add("Winkel α = " + actualAngle.ToString().Replace(".", ","));
+            output.Add("Winkel β = " + beta.ToString().Replace(".", ","));
+            output.Add("Höhe ha = " + height.ToString().Replace(".", ","));
+            output.Add("Breite hb = " + width.ToString().Replace(".", ","));
+            output.Add("Diagonale in Winkel α = " + diagonalAlpha.ToString().Replace(".", ","));
+            output.Add("Diagonale in Winkel β = " + diagonalBeta.ToString().Replace(".", ","));
+            output.Add("Umfang U = " + circumference.ToString().Replace(".", ","));
+            output.Add("Fläche A = " + area.ToString().Replace(".", ","));
+            this.Close();
         }
 
         private void btnCircle_Click(object sender, EventArgs e)
@@ -78,9 +121,9 @@ namespace Just4You.Modules.Geometry
             }
             double area = Math.PI * Math.Pow(radius.Value, 2);
             double circumference = 2 * Math.PI * radius.Value;
-            output.Add("r = " + radius.Input);
-            output.Add("A = " + area.ToString().Replace(".", ","));
-            output.Add("U = " + circumference.ToString().Replace(".", ","));
+            output.Add("Radius r = " + radius.Input);
+            output.Add("Umfang U = " + circumference.ToString().Replace(".", ","));
+            output.Add("Fläche A = " + area.ToString().Replace(".", ","));
             this.Close();
         }
 
