@@ -11,11 +11,17 @@ namespace Just4You.Modules.InputModule
         public double Value {
             get;
         }
+
+        public String Input
+        {
+            get;
+        }
         public Parameter(String name)
         {
             var Form = new InputForm();
             Form.SetLabel(name);
             Form.ShowDialog();
+            Input = Form.GetInput();
             Value = Form.GetValue();
         }
     }
