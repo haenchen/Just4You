@@ -105,5 +105,45 @@ namespace Just4You.Modules.MathematicalFunctions
             this.result = result;
             this.Close();
         }
+
+        private void btnPrimes_Click(object sender, EventArgs e)
+        {
+            var lower = new Parameter("Untere Intervalgrenze");
+            var upper = new Parameter("Obere Intervalgrenze");
+            if (lower.Value <= upper.Value)
+            {
+                GlobalLogger.addError("Die untere Intervalgrenze muss kleiner sein als die obere Intervalgrenze.");
+                this.Close();
+            }
+            int actualLower = lower.Value % 1 == 0
+                ? (int)lower.Value
+                : (int)lower.Value + 1;
+            var primes = new List<int>();
+            for (int i = actualLower; i < upper.Value; ++i)
+                if (IsPrime(i))
+                    primes.Add(i);
+            output.Add("Primzahlen zwischen " + lower.Input + " und " + upper.Input + ":");
+            var line = new StringBuilder();
+            foreach (int number in primes)
+                if (number != primes[primes.Count - 1])
+                    line.Append(number.ToString() + ", ");
+                else
+                    line.Append(number.ToString());
+            output.Add(line.ToString());
+        }
+
+        private bool IsPrime(int x)
+        {
+            if (x < 1)
+                return false;
+            if (x == 2)
+                return true;
+            if (x % 2 == 0)
+                return false;
+            for (int i = 3; i < x; i += 2)
+                if (x % i == 0)
+                    return false;
+            return true;
+        }
     }
 }
