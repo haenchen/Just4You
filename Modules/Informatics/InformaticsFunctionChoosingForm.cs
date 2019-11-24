@@ -43,7 +43,6 @@ namespace Just4You.Modules.Informatics
             if (width.Value % 1 != 0 || width.Value < 1)
             {
                 GlobalLogger.addError("Ungültige Eingabe für Breite.");
-                result = Double.NaN;
                 this.Close();
                 return;
             }
@@ -53,7 +52,6 @@ namespace Just4You.Modules.Informatics
             if (height.Value % 1 != 0 || height.Value < 1)
             {
                 GlobalLogger.addError("Ungültige Eingabe für Höhe.");
-                result = Double.NaN;
                 this.Close();
                 return;
             }
@@ -63,7 +61,6 @@ namespace Just4You.Modules.Informatics
             if (depth.Value % 1 != 0 || depth.Value < 1)
             {
                 GlobalLogger.addError("Ungültige Eingabe für Farbtiefe.");
-                result = Double.NaN;
                 this.Close();
                 return;
             }
@@ -82,7 +79,6 @@ namespace Just4You.Modules.Informatics
                 }
                 else
                 {
-                    result = Double.NaN;
                     GlobalLogger.addError("Errechnete Dateigröße zu groß.");
                     this.Close();
                     return;
@@ -99,7 +95,6 @@ namespace Just4You.Modules.Informatics
             if (startUnit.Value % 1 != 0 || startUnit.Value < 0 || startUnit.Value > 8)
             {
                 GlobalLogger.addError("Ungülütige Eingabe für Ausgangseinheit.");
-                result = Double.NaN;
                 this.Close();
                 return;
             }
@@ -110,7 +105,6 @@ namespace Just4You.Modules.Informatics
             if (inputValue.Value < 0 || (unit < 2 && inputValue.Value % 1 != 0))
             {
                 GlobalLogger.addError("Ungülütige Eingabe für Wert.");
-                result = Double.NaN;
                 this.Close();
                 return;
             }
@@ -144,7 +138,6 @@ namespace Just4You.Modules.Informatics
                 return;
             if (startSystem.Value % 1 != 0 || startSystem.Value < 0 || startSystem.Value > 3) {
                 GlobalLogger.addError("Ungültige Eingabe für Startsystem.");
-                result = Double.NaN;
                 this.Close();
                 return;
             }
@@ -155,7 +148,6 @@ namespace Just4You.Modules.Informatics
             if (value.Value % 1 != 0 || value.Value < 0)
             {
                 GlobalLogger.addError("Nur positive Ganzzahlen werden unterstützt.");
-                result = Double.NaN;
                 this.Close();
                 return;
             }
