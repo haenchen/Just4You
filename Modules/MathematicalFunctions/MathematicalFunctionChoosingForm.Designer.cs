@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.btnFactorial = new System.Windows.Forms.Button();
-            this.btnPotency = new System.Windows.Forms.Button();
+            this.btnExponentiation = new System.Windows.Forms.Button();
             this.btnRoot = new System.Windows.Forms.Button();
             this.btnPrimes = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -45,15 +45,16 @@
             this.btnFactorial.UseVisualStyleBackColor = true;
             this.btnFactorial.Click += new System.EventHandler(this.btnFactorial_Click);
             // 
-            // btnPotency
+            // btnExponentiation
             // 
-            this.btnPotency.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.btnPotency.Location = new System.Drawing.Point(12, 85);
-            this.btnPotency.Name = "btnPotency";
-            this.btnPotency.Size = new System.Drawing.Size(161, 67);
-            this.btnPotency.TabIndex = 1;
-            this.btnPotency.Text = "Potenz";
-            this.btnPotency.UseVisualStyleBackColor = true;
+            this.btnExponentiation.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.btnExponentiation.Location = new System.Drawing.Point(12, 85);
+            this.btnExponentiation.Name = "btnExponentiation";
+            this.btnExponentiation.Size = new System.Drawing.Size(161, 67);
+            this.btnExponentiation.TabIndex = 1;
+            this.btnExponentiation.Text = "Potenz";
+            this.btnExponentiation.UseVisualStyleBackColor = true;
+            this.btnExponentiation.Click += new System.EventHandler(this.btnExponentiation_Click);
             // 
             // btnRoot
             // 
@@ -82,7 +83,7 @@
             this.ClientSize = new System.Drawing.Size(352, 162);
             this.Controls.Add(this.btnPrimes);
             this.Controls.Add(this.btnRoot);
-            this.Controls.Add(this.btnPotency);
+            this.Controls.Add(this.btnExponentiation);
             this.Controls.Add(this.btnFactorial);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "MathematicalFunctionChoosingForm";
@@ -94,7 +95,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnFactorial;
-        private System.Windows.Forms.Button btnPotency;
+        private System.Windows.Forms.Button btnExponentiation;
         private System.Windows.Forms.Button btnRoot;
         private System.Windows.Forms.Button btnPrimes;
     }
