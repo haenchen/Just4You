@@ -50,6 +50,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GlobalLogger.cs" />
     <Compile Include="Modules\BasicCalculator\BasicCalculator.cs" />
     <Compile Include="Modules\BasicCalculator\Lexer.cs" />
     <Compile Include="Modules\BasicCalculator\Node\NodeInterface.cs" />
@@ -62,10 +63,19 @@
     <Compile Include="Modules\BasicCalculator\Node\Scalar.cs" />
     <Compile Include="Modules\BasicCalculator\Parser.cs" />
     <Compile Include="Modules\BasicCalculator\Token.cs" />
+    <Compile Include="Modules\InputModule\InputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\InputModule\InputForm.Designer.cs">
+      <DependentUpon>InputForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\InputModule\InputForm.resx">
+      <DependentUpon>InputForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

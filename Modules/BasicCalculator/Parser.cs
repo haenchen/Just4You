@@ -21,7 +21,7 @@ namespace Just4You.Modules.BasicCalculator
             catch (Exception)
             {
                 Node = new Scalar(0);
-                GlobalLogger.addError("Ungültige Eingabe");
+                GlobalLogger.addError("Grundrechner: Ungültige Eingabe");
             }
             return Node;
         }
