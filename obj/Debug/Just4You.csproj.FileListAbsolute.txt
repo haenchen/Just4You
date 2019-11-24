@@ -12,10 +12,10 @@ D:\Schule\Just4You\bin\Debug\Just4You.exe.config
 D:\Schule\Just4You\bin\Debug\Just4You.exe
 D:\Schule\Just4You\bin\Debug\Just4You.pdb
 D:\Schule\Just4You\obj\Debug\Just4You.csprojAssemblyReference.cache
-D:\Schule\Just4You\obj\Debug\Just4You.Form1.resources
 D:\Schule\Just4You\obj\Debug\Just4You.Modules.InputModule.InputForm.resources
 D:\Schule\Just4You\obj\Debug\Just4You.Modules.MathematicalFunctions.MathematicalFunctionChoosingForm.resources
 D:\Schule\Just4You\obj\Debug\Just4You.Properties.Resources.resources
 D:\Schule\Just4You\obj\Debug\Just4You.csproj.GenerateResource.cache
 D:\Schule\Just4You\obj\Debug\Just4You.exe
 D:\Schule\Just4You\obj\Debug\Just4You.pdb
+D:\Schule\Just4You\obj\Debug\Just4You.MainForm.resources
