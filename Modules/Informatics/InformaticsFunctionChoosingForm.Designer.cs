@@ -35,7 +35,7 @@
             // 
             // btnImage
             // 
-            this.btnImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.btnImage.Location = new System.Drawing.Point(12, 12);
             this.btnImage.Name = "btnImage";
             this.btnImage.Size = new System.Drawing.Size(161, 67);
@@ -46,7 +46,7 @@
             // 
             // btnUnits
             // 
-            this.btnUnits.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnUnits.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.btnUnits.Location = new System.Drawing.Point(12, 85);
             this.btnUnits.Name = "btnUnits";
             this.btnUnits.Size = new System.Drawing.Size(161, 67);
@@ -57,7 +57,7 @@
             // 
             // btnNumber
             // 
-            this.btnNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.btnNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.btnNumber.Location = new System.Drawing.Point(12, 158);
             this.btnNumber.Name = "btnNumber";
             this.btnNumber.Size = new System.Drawing.Size(161, 67);
