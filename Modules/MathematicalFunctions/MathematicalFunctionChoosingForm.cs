@@ -33,6 +33,7 @@ namespace Just4You.Modules.MathematicalFunctions
             {
                 value *= i;
             }
+            result = value;
             output.Add(param.Input + "! = " + value.ToString());
             this.Close();
         }
@@ -43,6 +44,8 @@ namespace Just4You.Modules.MathematicalFunctions
             var exponent = new Parameter("Exponent");
             double result = Power(exponentiationBase.Value, exponent.Value);
             output.Add(exponentiationBase.Input + " ^ " + exponent.Input + " = " + result.ToString().Replace(".", ","));
+            this.result = result;
+            this.Close();
         }
 
         private double Power(double exponentiationBase, double power, double precision = 0.000001)
@@ -64,14 +67,14 @@ namespace Just4You.Modules.MathematicalFunctions
         {
             double precision = 0.000001;
             double y = 1.0;
-            while (abs(x/y - y) > precision)
+            while (Absolute(x/y - y) > precision)
             {
                 y = (y + x / y) / 2;
             }
             return y;
         }
 
-        private double abs(double x)
+        private double Absolute(double x)
         {
             return x < 0 ? x * (-1) : x;
         }
@@ -79,6 +82,28 @@ namespace Just4You.Modules.MathematicalFunctions
         private double NthRoot(double x, int n)
         {
             return Power(x, 1 / n);
+        }
+
+        private void btnRoot_Click(object sender, EventArgs e)
+        {
+            var index = new Parameter("Wurzelexponent");
+            if (index.Value % 1 != 0)
+            {
+                GlobalLogger.addError("Nichtganzzahlige Eingabe für Wurzelexponent");
+                this.Close();
+                return;
+            }
+            var radicand = new Parameter("Radikand");
+            if (index.Value < 0 || radicand.Value < 0)
+            {
+                GlobalLogger.addError("Negative Eingabe für Wurzelfunktion");
+                this.Close();
+                return;
+            }
+            double result = NthRoot(radicand.Value, (int) index.Value);
+            output.Add(index.Input + "te Wurzel von " + radicand.Input + " = " + result.ToString().Replace(".", ","));
+            this.result = result;
+            this.Close();
         }
     }
 }

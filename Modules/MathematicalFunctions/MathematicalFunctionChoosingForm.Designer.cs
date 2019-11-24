@@ -65,6 +65,7 @@
             this.btnRoot.TabIndex = 2;
             this.btnRoot.Text = "Wurzel";
             this.btnRoot.UseVisualStyleBackColor = true;
+            this.btnRoot.Click += new System.EventHandler(this.btnRoot_Click);
             // 
             // btnPrimes
             // 
