@@ -21,6 +21,8 @@ namespace Just4You.Modules.MathematicalFunctions
         private void btnFactorial_Click(object sender, EventArgs e)
         {
             var param = new Parameter("Fakultät");
+            if (ParamAborted(param))
+                return;
             double value = param.Value;
             // Prüfen ob Wert Ganzzahl ist
             if (value % 1 != 0)
@@ -42,7 +44,11 @@ namespace Just4You.Modules.MathematicalFunctions
         private void btnExponentiation_Click(object sender, EventArgs e)
         {
             var exponentiationBase = new Parameter("Basis");
+            if (ParamAborted(exponentiationBase))
+                return;
             var exponent = new Parameter("Exponent");
+            if (ParamAborted(exponent))
+                return;
             double result = Power(exponentiationBase.Value, exponent.Value);
             output.Add(exponentiationBase.Input + " ^ " + exponent.Input + " = " + result.ToString().Replace(".", ","));
             this.result = result;
@@ -91,12 +97,14 @@ namespace Just4You.Modules.MathematicalFunctions
 
         private double NthRoot(double x, int n)
         {
-            return Power(x, 1 / n);
+            return Power(x, 1.0 / n);
         }
 
         private void btnRoot_Click(object sender, EventArgs e)
         {
             var index = new Parameter("Wurzelexponent");
+            if (ParamAborted(index))
+                return;
             if (index.Value % 1 != 0)
             {
                 GlobalLogger.addError("Nichtganzzahlige Eingabe für Wurzelexponent");
@@ -105,6 +113,8 @@ namespace Just4You.Modules.MathematicalFunctions
                 return;
             }
             var radicand = new Parameter("Radikand");
+            if (ParamAborted(radicand))
+                return;
             if (index.Value < 0 || radicand.Value < 0)
             {
                 GlobalLogger.addError("Nur positive Zahlen können radiziert werden");
@@ -120,8 +130,12 @@ namespace Just4You.Modules.MathematicalFunctions
 
         private void btnPrimes_Click(object sender, EventArgs e)
         {
-            var lower = new Parameter("Untere Intervalgrenze");
-            var upper = new Parameter("Obere Intervalgrenze");
+            var lower = new Parameter("Untere Grenze");
+            if (ParamAborted(lower))
+                return;
+            var upper = new Parameter("Obere Grenze");
+            if (ParamAborted(upper))
+                return;
             if (lower.Value <= upper.Value)
             {
                 GlobalLogger.addError("Die untere Intervalgrenze muss kleiner sein als die obere Intervalgrenze.");
@@ -131,7 +145,7 @@ namespace Just4You.Modules.MathematicalFunctions
                 ? (int)lower.Value
                 : (int)lower.Value + 1;
             var primes = new List<int>();
-            for (int i = actualLower; i < upper.Value; ++i)
+            for (int i = actualLower; i <= upper.Value; ++i)
                 if (IsPrime(i))
                     primes.Add(i);
             output.Add("Primzahlen zwischen " + lower.Input + " und " + upper.Input + ":");
@@ -146,7 +160,7 @@ namespace Just4You.Modules.MathematicalFunctions
 
         private bool IsPrime(int x)
         {
-            if (x < 1)
+            if (x <= 1)
                 return false;
             if (x == 2)
                 return true;

@@ -14,9 +14,15 @@ namespace Just4You.Modules.InputModule
     public partial class InputForm : Form
     {
 
-        private double desult;
+        private double result = 0;
 
-        private String input;
+        private String input = "0";
+
+        public bool Aborted
+        {
+            get;
+            set;
+        } = true;
         public InputForm()
         {
             InitializeComponent();
@@ -34,7 +40,7 @@ namespace Just4You.Modules.InputModule
 
         public Double GetValue()
         {
-            return desult;
+            return result;
         }
 
         private void btnSeven_Click(object sender, EventArgs e)
@@ -120,7 +126,7 @@ namespace Just4You.Modules.InputModule
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (textInput.Text.Length > 0)
-                textInput.Text.Remove(textInput.Text.Length - 1);
+                textInput.Text = textInput.Text.Remove(textInput.Text.Length - 1);
         }
 
         private void btnParopen_Click(object sender, EventArgs e)
@@ -141,18 +147,19 @@ namespace Just4You.Modules.InputModule
 
         private void btnEnter_Click(object sender, EventArgs e)
         {
-            desult = BasicCalculator.BasicCalculator.Evaluate(textInput.Text);
+            result = BasicCalculator.BasicCalculator.Evaluate(textInput.Text);
+            Aborted = false;
             if (!GlobalLogger.NewErrorsExist())
             {
                 if (Double.TryParse(textInput.Text.Replace(",", "."), out double inputNumber))
                 {
-                    input = input.ToString();
+                    input = inputNumber.ToString();
                 }
                 else
                 {
                     input = "(" + textInput.Text + ")";
                 }
-                textInput.Text = desult.ToString().Replace(".", ",");
+                textInput.Text = result.ToString().Replace(".", ",");
                 this.Close();
             }
             btnAbort_Click(sender, e);
