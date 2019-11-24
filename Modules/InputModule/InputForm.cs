@@ -125,8 +125,12 @@ namespace Just4You.Modules.InputModule
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (textInput.Text.Length > 0)
+            if (textInput.TextLength < 1)
+                return;
+            do
+            {
                 textInput.Text = textInput.Text.Remove(textInput.Text.Length - 1);
+            } while (textInput.TextLength > 0 && textInput.Text[textInput.TextLength - 1] == ' ');
         }
 
         private void btnParopen_Click(object sender, EventArgs e)
