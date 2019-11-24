@@ -76,6 +76,7 @@
             this.btnPrimes.TabIndex = 3;
             this.btnPrimes.Text = "Primzahlen";
             this.btnPrimes.UseVisualStyleBackColor = true;
+            this.btnPrimes.Click += new System.EventHandler(this.btnPrimes_Click);
             // 
             // MathematicalFunctionChoosingForm
             // 

@@ -13,7 +13,7 @@ namespace Just4You
     public abstract partial class ModuleForm : Form
     {
         protected List<String> output;
-        protected double result;
+        protected double result = 0;
         public ModuleForm()
         {
             InitializeComponent();
