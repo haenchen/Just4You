@@ -28,6 +28,12 @@ namespace Just4You
         {
             txtHistory.Text += line + Environment.NewLine;
         }
+
+        private void AddLines(List<String> lines)
+        {
+            foreach (String line in lines)
+                AddLine(line);
+        }
         private void btnBasicCalculator_Click(object sender, EventArgs e)
         {
             var basic = new Parameter("Grundrechner");
@@ -36,18 +42,20 @@ namespace Just4You
 
         private void btnModuleOne_Click(object sender, EventArgs e)
         {
-            BaseModuleFunction(modules[1]);
+            BaseModuleFunction(1);
         }
 
-        private void BaseModuleFunction(Type type)
+        private void BaseModuleFunction(int index)
         {
-            var form = (ModuleForm)Activator.CreateInstance(type);
+            var form = (ModuleForm)Activator.CreateInstance(modules[index]);
             form.ShowDialog();
-            var output = form.GetOutput();
-            foreach (String line in output)
+            if (GlobalLogger.NewErrorsExist())
             {
-                AddLine(line);
+                AddLines(GlobalLogger.GetRecentErrors());
+                return;
             }
+            var output = form.GetOutput();
+            AddLines(output);
         }
     }
 }

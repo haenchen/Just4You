@@ -31,6 +31,7 @@ namespace Just4You
             {
                 TempList.Add(Log[OutputIndex]);
             }
+            QueryIndex = OutputIndex;
             return TempList;
         }
 
