@@ -127,8 +127,9 @@ namespace Just4You.Modules.BasicCalculator
                 if ((Token.GetTokenType() == TokenType.T_INT) || (Token.GetTokenType() == TokenType.T_FLOAT))
                 {
                     String Lexeme = Token.GetLexeme().Replace('.', ',');
-                    Double.TryParse(Lexeme, out double ConvertedLexeme);
-                    astStack.Push(new Scalar(ConvertedLexeme));
+                    double convertedLexeme;
+                    Double.TryParse(Lexeme, out convertedLexeme);
+                    astStack.Push(new Scalar(convertedLexeme));
                     continue;
                 }
                 else

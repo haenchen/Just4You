@@ -22,9 +22,10 @@ namespace Just4You.Modules.InputModule
         {
             get;
             set;
-        } = true;
+        }
         public InputForm()
         {
+            Aborted = true;
             InitializeComponent();
         }
 
@@ -155,7 +156,8 @@ namespace Just4You.Modules.InputModule
             Aborted = false;
             if (!GlobalLogger.NewErrorsExist())
             {
-                if (Double.TryParse(textInput.Text.Replace(",", "."), out double inputNumber))
+                double inputNumber;
+                if (Double.TryParse(textInput.Text.Replace(",", "."), out inputNumber))
                 {
                     input = inputNumber.ToString();
                 }

@@ -21,3 +21,16 @@ D:\Schule\Just4You\obj\Debug\Just4You.pdb
 D:\Schule\Just4You\obj\Debug\Just4You.MainForm.resources
 D:\Schule\Just4You\obj\Debug\Just4You.Modules.Informatics.InformaticsFunctionChoosingForm.resources
 D:\Schule\Just4You\obj\Debug\Just4You.Modules.Geometry.GeometryFunctionChoosingForm.resources
+C:\Users\admin\Desktop\Just4You-master\bin\Debug\Just4You.exe.config
+C:\Users\admin\Desktop\Just4You-master\obj\Debug\Just4You.pdb
+C:\Users\admin\Desktop\Just4You-master\obj\Debug\Just4You.csprojResolveAssemblyReference.cache
+C:\Users\admin\Desktop\Just4You-master\obj\Debug\Just4You.MainForm.resources
+C:\Users\admin\Desktop\Just4You-master\obj\Debug\Just4You.Modules.Geometry.GeometryFunctionChoosingForm.resources
+C:\Users\admin\Desktop\Just4You-master\obj\Debug\Just4You.Modules.Informatics.InformaticsFunctionChoosingForm.resources
+C:\Users\admin\Desktop\Just4You-master\obj\Debug\Just4You.Modules.InputModule.InputForm.resources
+C:\Users\admin\Desktop\Just4You-master\obj\Debug\Just4You.Modules.MathematicalFunctions.MathematicalFunctionChoosingForm.resources
+C:\Users\admin\Desktop\Just4You-master\obj\Debug\Just4You.Properties.Resources.resources
+C:\Users\admin\Desktop\Just4You-master\obj\Debug\Just4You.csproj.GenerateResource.Cache
+C:\Users\admin\Desktop\Just4You-master\bin\Debug\Just4You.exe
+C:\Users\admin\Desktop\Just4You-master\bin\Debug\Just4You.pdb
+C:\Users\admin\Desktop\Just4You-master\obj\Debug\Just4You.exe
