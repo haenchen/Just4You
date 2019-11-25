@@ -8,18 +8,22 @@ namespace Just4You.Modules.InputModule
 {
     public class Parameter
     {
-        public double Value {
+        public double Value
+        {
             get;
+            set;
         }
 
         public String Input
         {
             get;
+            set;
         }
 
         public bool Aborted
         {
             get;
+            set;
         }
         public Parameter(String name)
         {
