@@ -35,12 +35,42 @@ namespace Just4You.Modules.Finances
 
         private void btnNumberOfPayments_Click(object sender, EventArgs e)
         {
-
+            var amount = new Parameter("Kreditbetrag", new InputConstraint[] { new PositiveConstraint(), new NonZeroConstraint() });
+            if (ParamAborted(amount))
+                return;
+            var count = new Parameter("Laufzeit", new InputConstraint[] { new PositiveConstraint(), new NonZeroConstraint(), new IntegerConstraint() });
+            if (ParamAborted(count))
+                return;
         }
 
         private void btnPaymentAmount_Click(object sender, EventArgs e)
         {
-
+            var amount = new Parameter("Kreditbetrag", new InputConstraint[] { new PositiveConstraint(), new NonZeroConstraint() });
+            if (ParamAborted(amount))
+                return;
+            var payment = new Parameter("Ratenhöhe", new InputConstraint[] { new PositiveConstraint(), new NonZeroConstraint() });
+            if (ParamAborted(payment))
+                return;
+            if (payment.Value >= amount.Value)
+            {
+                GlobalLogger.addError("Ratenhöhe muss kleiner als der Kreditbetrag sein.");
+                this.Close();
+                return;
+            }
+            output.Add("Kreditbetrag: " + amount.Value.ToString().Replace('.', ',') + " €");
+            output.Add("Ratenhöhe: " + payment.Value.ToString().Replace('.', ',') + " €");
+            double fullPayment = Math.Floor(amount.Value / payment.Value);
+            double mod = amount.Value % payment.Value;
+            if (mod != 0)
+            {
+                output.Add("Laufzeit: " + (fullPayment + 1).ToString().Replace('.', ',') + " Monate");
+                output.Add("Wobei die Schlussrate " + mod.ToString().Replace('.', ',') + " € beträgt.");
+            }
+            else
+            {
+                output.Add("Laufzeit: " + fullPayment.ToString().Replace('.', ',') + " Monate");
+            }
+            this.Close();
         }
 
         public override string GetModuleText()
