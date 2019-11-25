@@ -20,10 +20,10 @@ namespace Just4You.Modules.Geometry
 
         private void btnTriangle_Click(object sender, EventArgs e)
         {
-            var sideA = new Parameter("Seite a", new InputConstraint[] { new PositiveConstraint(), new NonZeroConstraint });
+            var sideA = new Parameter("Seite a", new InputConstraint[] { new PositiveConstraint(), new NonZeroConstraint() });
             if (ParamAborted(sideA))
                 return;
-            var sideB = new Parameter("Seite b", new InputConstraint[] { new PositiveConstraint(), new NonZeroConstraint });
+            var sideB = new Parameter("Seite b", new InputConstraint[] { new PositiveConstraint(), new NonZeroConstraint() });
             if (ParamAborted(sideB))
                 return;
             var angle = new Parameter("Winkel γ (°)");
@@ -52,11 +52,11 @@ namespace Just4You.Modules.Geometry
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var sideA = new Parameter("Seite a", new InputConstraint[] { new PositiveConstraint(), new NonZeroConstraint });
+            var sideA = new Parameter("Seite a", new InputConstraint[] { new PositiveConstraint(), new NonZeroConstraint() });
             if (ParamAborted(sideA))
                 return;
             double a = sideA.Value;
-            var sideB = new Parameter("Seite b", new InputConstraint[] { new PositiveConstraint(), new NonZeroConstraint });
+            var sideB = new Parameter("Seite b", new InputConstraint[] { new PositiveConstraint(), new NonZeroConstraint() });
             if (ParamAborted(sideB))
                 return;
             double b = sideB.Value;
@@ -86,7 +86,7 @@ namespace Just4You.Modules.Geometry
 
         private void btnCircle_Click(object sender, EventArgs e)
         {
-            var radius = new Parameter("Radius", new InputConstraint[] { new PositiveConstraint(), new NonZeroConstraint });
+            var radius = new Parameter("Radius", new InputConstraint[] { new PositiveConstraint(), new NonZeroConstraint() });
             if (ParamAborted(radius))
                 return;
             double area = Math.PI * Math.Pow(radius.Value, 2);
