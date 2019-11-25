@@ -37,6 +37,8 @@ namespace Just4You.Modules.InputModule
 
         public Parameter(String name, InputConstraint[] constraints) : this(name)
         {
+            if (Aborted)
+                return;
             foreach (InputConstraint constraint in constraints)
                 if (!constraint.IsValid(Value))
                 {
