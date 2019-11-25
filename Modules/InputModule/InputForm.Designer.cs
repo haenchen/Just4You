@@ -330,10 +330,10 @@
             // textInput
             // 
             this.textInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.textInput.Location = new System.Drawing.Point(305, 12);
+            this.textInput.Location = new System.Drawing.Point(368, 12);
             this.textInput.Name = "textInput";
             this.textInput.ReadOnly = true;
-            this.textInput.Size = new System.Drawing.Size(523, 41);
+            this.textInput.Size = new System.Drawing.Size(460, 41);
             this.textInput.TabIndex = 1;
             // 
             // labelParam
