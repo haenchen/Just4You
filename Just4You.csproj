@@ -63,6 +63,7 @@
     <Compile Include="Modules\Informatics\InformaticsFunctionChoosingForm.Designer.cs">
       <DependentUpon>InformaticsFunctionChoosingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modules\InputModule\InputConstraint.cs" />
     <Compile Include="Modules\ModuleForm.cs">
       <SubType>Form</SubType>
     </Compile>
