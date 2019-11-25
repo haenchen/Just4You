@@ -34,3 +34,4 @@ C:\Users\admin\Desktop\Just4You-master\obj\Debug\Just4You.csproj.GenerateResourc
 C:\Users\admin\Desktop\Just4You-master\bin\Debug\Just4You.exe
 C:\Users\admin\Desktop\Just4You-master\bin\Debug\Just4You.pdb
 C:\Users\admin\Desktop\Just4You-master\obj\Debug\Just4You.exe
+D:\Schule\Just4You\obj\Debug\Just4You.Modules.Finances.FinancesFunctionChoosingForm.resources
