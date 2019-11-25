@@ -41,6 +41,15 @@ namespace Just4You.Modules.Finances
             var count = new Parameter("Laufzeit", new InputConstraint[] { new PositiveConstraint(), new NonZeroConstraint(), new IntegerConstraint() });
             if (ParamAborted(count))
                 return;
+            var interest = new Parameter("Zinssatz (in %)", new InputConstraint[] { new PositiveConstraint() });
+            if (ParamAborted(interest))
+                return;
+            double fullAmount = amount.Value + (amount.Value * interest.Value / 100);
+            output.Add("Kreditbetrag: " + amount.Value.ToString().Replace('.', ',') + " €");
+            output.Add("Laufzeit: " + count.Value.ToString().Replace('.', ',') + " Monate");
+            output.Add("Zinssatz: " + interest.Value.ToString().Replace('.', ',') + " %");
+            output.Add("Ratenhöhe: " + Math.Round(fullAmount / count.Value, 2).ToString().Replace('.', ',') + " €");
+            this.Close();
         }
 
         private void btnPaymentAmount_Click(object sender, EventArgs e)
@@ -51,6 +60,9 @@ namespace Just4You.Modules.Finances
             var payment = new Parameter("Ratenhöhe", new InputConstraint[] { new PositiveConstraint(), new NonZeroConstraint() });
             if (ParamAborted(payment))
                 return;
+            var interest = new Parameter("Zinssatz (in %)", new InputConstraint[] { new PositiveConstraint() });
+            if (ParamAborted(interest))
+                return;
             if (payment.Value >= amount.Value)
             {
                 GlobalLogger.addError("Ratenhöhe muss kleiner als der Kreditbetrag sein.");
@@ -59,7 +71,9 @@ namespace Just4You.Modules.Finances
             }
             output.Add("Kreditbetrag: " + amount.Value.ToString().Replace('.', ',') + " €");
             output.Add("Ratenhöhe: " + payment.Value.ToString().Replace('.', ',') + " €");
-            double fullPayment = Math.Floor(amount.Value / payment.Value);
+            output.Add("Zinssatz: " + interest.Value.ToString().Replace('.', ',') + " %");
+            double fullAmount = amount.Value + (amount.Value * interest.Value / 100);
+            double fullPayment = Math.Floor(fullAmount / payment.Value);
             double mod = amount.Value % payment.Value;
             if (mod != 0)
             {
