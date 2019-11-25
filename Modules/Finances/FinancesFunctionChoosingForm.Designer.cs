@@ -76,7 +76,7 @@
             this.Controls.Add(this.btnOneTimePayment);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FinancesFunctionChoosingForm";
-            this.Text = "FinancesFunctionChoosingForm";
+            this.Text = "Finanzierung";
             this.ResumeLayout(false);
 
         }

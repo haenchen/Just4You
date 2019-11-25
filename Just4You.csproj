@@ -101,6 +101,12 @@
     <Compile Include="Modules\MathematicalFunctions\MathematicalFunctionChoosingForm.Designer.cs">
       <DependentUpon>MathematicalFunctionChoosingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Percentage\PercentageFunctionChoosingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Percentage\PercentageFunctionChoosingForm.Designer.cs">
+      <DependentUpon>PercentageFunctionChoosingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modules\School\SchoolForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\MathematicalFunctions\MathematicalFunctionChoosingForm.resx">
       <DependentUpon>MathematicalFunctionChoosingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Percentage\PercentageFunctionChoosingForm.resx">
+      <DependentUpon>PercentageFunctionChoosingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
