@@ -37,28 +37,28 @@ namespace Just4You.Modules.Informatics
 
         private void btnImage_Click(object sender, EventArgs e)
         {
-            var width = new Parameter("Breite");
+            var width = new Parameter("Breite", new InputConstraint[] { new IntegerConstraint() });
             if (ParamAborted(width))
                 return;
-            if (width.Value % 1 != 0 || width.Value < 1)
+            if (width.Value < 1)
             {
                 GlobalLogger.addError("Ungültige Eingabe für Breite.");
                 this.Close();
                 return;
             }
-            var height = new Parameter("Höhe");
+            var height = new Parameter("Höhe", new InputConstraint[] { new IntegerConstraint() });
             if (ParamAborted(height))
                 return;
-            if (height.Value % 1 != 0 || height.Value < 1)
+            if (height.Value < 1)
             {
                 GlobalLogger.addError("Ungültige Eingabe für Höhe.");
                 this.Close();
                 return;
             }
-            var depth = new Parameter("Farbtiefe");
+            var depth = new Parameter("Farbtiefe", new InputConstraint[] { new IntegerConstraint() });
             if (ParamAborted(depth))
                 return;
-            if (depth.Value % 1 != 0 || depth.Value < 1)
+            if (depth.Value < 1)
             {
                 GlobalLogger.addError("Ungültige Eingabe für Farbtiefe.");
                 this.Close();
@@ -89,20 +89,20 @@ namespace Just4You.Modules.Informatics
 
         private void btnUnits_Click(object sender, EventArgs e)
         {
-            var startUnit = new Parameter("Ausgangseinheit");
+            var startUnit = new Parameter("Ausgangseinheit", new InputConstraint[] { new IntegerConstraint() });
             if (ParamAborted(startUnit))
                 return;
-            if (startUnit.Value % 1 != 0 || startUnit.Value < 0 || startUnit.Value > 8)
+            if (startUnit.Value < 0 || startUnit.Value > 8)
             {
                 GlobalLogger.addError("Ungülütige Eingabe für Ausgangseinheit.");
                 this.Close();
                 return;
             }
             int unit = (int)startUnit.Value;
-            var inputValue = new Parameter("Wert in " + GetUnit(unit));
+            var inputValue = new Parameter("Wert in " + GetUnit(unit), new InputConstraint[] { new PositiveConstraint() });
             if (ParamAborted(inputValue))
                 return;
-            if (inputValue.Value < 0 || (unit < 2 && inputValue.Value % 1 != 0))
+            if (unit < 2 && inputValue.Value % 1 != 0)
             {
                 GlobalLogger.addError("Ungülütige Eingabe für Wert.");
                 this.Close();
@@ -133,24 +133,18 @@ namespace Just4You.Modules.Informatics
 
         private void btnNumber_Click(object sender, EventArgs e)
         {
-            var startSystem = new Parameter("Startsystem");
+            var startSystem = new Parameter("Startsystem", new InputConstraint[] { new IntegerConstraint() });
             if (ParamAborted(startSystem))
                 return;
-            if (startSystem.Value % 1 != 0 || startSystem.Value < 0 || startSystem.Value > 3) {
+            if (startSystem.Value < 0 || startSystem.Value > 3) {
                 GlobalLogger.addError("Ungültige Eingabe für Startsystem.");
                 this.Close();
                 return;
             }
             int system = (int)startSystem.Value;
-            var value = new Parameter("Wert");
+            var value = new Parameter("Wert", new InputConstraint[] { new IntegerConstraint(), new PositiveConstraint() });
             if (ParamAborted(value))
                 return;
-            if (value.Value % 1 != 0 || value.Value < 0)
-            {
-                GlobalLogger.addError("Nur positive Ganzzahlen werden unterstützt.");
-                this.Close();
-                return;
-            }
             int actualVal = (int)value.Value;
             for (int i = 0; i < 4; ++i)
             {

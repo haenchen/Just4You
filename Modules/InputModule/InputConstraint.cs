@@ -15,7 +15,10 @@ namespace Just4You.Modules.InputModule
     { 
         public bool IsValid(double x)
         {
-            return x > 0;
+            bool result = x > 0;
+            if (!result)
+                GlobalLogger.addError("Nur positive Eingaben sind für diese Operation gestattet.");
+            return result;
         }
     }
 
@@ -23,7 +26,10 @@ namespace Just4You.Modules.InputModule
     {
         public bool IsValid(double x)
         {
-            return x != 0;
+            bool result = x != 0;
+            if (!result)
+                GlobalLogger.addError("Nur nicht-null Eingaben sind für diese Operation gestattet.");
+            return result;
         }
     }
 
@@ -31,7 +37,10 @@ namespace Just4You.Modules.InputModule
     {
         public bool IsValid(double x)
         {
-            return x % 1 == 0;
+            bool result = x % 1 == 0;
+            if (!result)
+                GlobalLogger.addError("Nur ganzzahlige Eingaben sind für diese Operation gestattet.");
+            return result;
         }
     }
 }
