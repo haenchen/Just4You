@@ -21,22 +21,17 @@ namespace Just4You.Modules.School
         // Es tut mir Leid, Götter des guten Codes
         public override void DoModuleFunction()
         {
-            var count = new Parameter("Notenanzahl");
+            var count = new Parameter("Notenanzahl",
+                new InputConstraint[] { new IntegerConstraint(), new PositiveConstraint(), new NonZeroConstraint() });
             var grades = new List<int>();
             if (ParamAborted(count))
                 return;
-            if (count.Value < 1 || count.Value % 1 != 0)
-            {
-                GlobalLogger.addError("Ungültige Anzahl von Noten eingegeben");
-                this.Close();
-                return;
-            }
             for (int i = 1; i <= (int) count.Value; ++i)
             {
-                var param = new Parameter("Note " + i.ToString());
+                var param = new Parameter("Note " + i.ToString(), new InputConstraint[] { new IntegerConstraint() });
                 if (ParamAborted(param))
                     return;
-                if (param.Value % 1 != 0 || param.Value < 1 || param.Value > 6)
+                if (param.Value < 1 || param.Value > 6)
                 {
                     GlobalLogger.addError("Ungültige Note eingegeben: " + param.Value.ToString().Replace(".", ","));
                     this.Close();

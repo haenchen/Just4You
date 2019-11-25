@@ -20,17 +20,11 @@ namespace Just4You.Modules.MathematicalFunctions
 
         private void btnFactorial_Click(object sender, EventArgs e)
         {
-            var param = new Parameter("Fakultät");
+            var param = new Parameter("Fakultät", new InputConstraint[] { new IntegerConstraint(), new PositiveConstraint() });
             if (ParamAborted(param))
                 return;
             double value = param.Value;
             // Prüfen ob Wert Ganzzahl ist
-            if (value % 1 != 0)
-            {
-                GlobalLogger.addError("Keine Ganzzahl für Fakultätsfunktion angegeben");
-                this.Close();
-                return;
-            }
             for (int i = (int) value - 1; i > 0; i--)
             {
                 value *= i;
@@ -59,24 +53,12 @@ namespace Just4You.Modules.MathematicalFunctions
 
         private void btnRoot_Click(object sender, EventArgs e)
         {
-            var index = new Parameter("Wurzelexponent");
+            var index = new Parameter("Wurzelexponent", new InputConstraint[] { new IntegerConstraint() });
             if (ParamAborted(index))
                 return;
-            if (index.Value % 1 != 0)
-            {
-                GlobalLogger.addError("Nichtganzzahlige Eingabe für Wurzelexponent");
-                this.Close();
-                return;
-            }
-            var radicand = new Parameter("Radikand");
+            var radicand = new Parameter("Radikand", new InputConstraint[] { new PositiveConstraint() });
             if (ParamAborted(radicand))
                 return;
-            if (index.Value < 0 || radicand.Value < 0)
-            {
-                GlobalLogger.addError("Nur positive Zahlen können radiziert werden");
-                this.Close();
-                return;
-            }
             double result = NthRoot(radicand.Value, (int) index.Value);
             output.Add(index.Input + "te Wurzel von " + radicand.Input + " = " + result.ToString().Replace(".", ","));
             this.Close();

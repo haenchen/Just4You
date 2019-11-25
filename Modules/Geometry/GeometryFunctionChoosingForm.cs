@@ -20,24 +20,12 @@ namespace Just4You.Modules.Geometry
 
         private void btnTriangle_Click(object sender, EventArgs e)
         {
-            var sideA = new Parameter("Seite a");
+            var sideA = new Parameter("Seite a", new InputConstraint[] { new PositiveConstraint(), new NonZeroConstraint });
             if (ParamAborted(sideA))
                 return;
-            if (sideA.Value < 0)
-            {
-                GlobalLogger.addError("Seitenlänge kann nur positiv sein.");
-                this.Close();
-                return;
-            }
-            var sideB = new Parameter("Seite b");
+            var sideB = new Parameter("Seite b", new InputConstraint[] { new PositiveConstraint(), new NonZeroConstraint });
             if (ParamAborted(sideB))
                 return;
-            if (sideB.Value < 0)
-            {
-                GlobalLogger.addError("Seitenlänge kann nur positiv sein.");
-                this.Close();
-                return;
-            }
             var angle = new Parameter("Winkel γ (°)");
             if (ParamAborted(angle))
                 return;
@@ -64,25 +52,13 @@ namespace Just4You.Modules.Geometry
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var sideA = new Parameter("Seite a");
+            var sideA = new Parameter("Seite a", new InputConstraint[] { new PositiveConstraint(), new NonZeroConstraint });
             if (ParamAborted(sideA))
                 return;
-            if (sideA.Value < 0)
-            {
-                GlobalLogger.addError("Seitenlänge muss positiv sein.");
-                this.Close();
-                return;
-            }
             double a = sideA.Value;
-            var sideB = new Parameter("Seite a");
+            var sideB = new Parameter("Seite b", new InputConstraint[] { new PositiveConstraint(), new NonZeroConstraint });
             if (ParamAborted(sideB))
                 return;
-            if (sideB.Value < 0)
-            {
-                GlobalLogger.addError("Seitenlänge muss positiv sein.");
-                this.Close();
-                return;
-            }
             double b = sideB.Value;
             var angle = new Parameter("Winkel α (°)");
             if (ParamAborted(angle))
@@ -110,15 +86,9 @@ namespace Just4You.Modules.Geometry
 
         private void btnCircle_Click(object sender, EventArgs e)
         {
-            var radius = new Parameter("Radius");
+            var radius = new Parameter("Radius", new InputConstraint[] { new PositiveConstraint(), new NonZeroConstraint });
             if (ParamAborted(radius))
                 return;
-            if (radius.Value < 0)
-            {
-                GlobalLogger.addError("Radius kann nur positiv sein.");
-                this.Close();
-                return;
-            }
             double area = Math.PI * Math.Pow(radius.Value, 2);
             double circumference = 2 * Math.PI * radius.Value;
             output.Add("Radius r = " + radius.Input);

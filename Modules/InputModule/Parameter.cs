@@ -39,7 +39,10 @@ namespace Just4You.Modules.InputModule
         {
             foreach (InputConstraint constraint in constraints)
                 if (constraint.IsValid(Value))
+                {
                     Aborted = true;
+                    return;
+                }
         }
     }
 }
