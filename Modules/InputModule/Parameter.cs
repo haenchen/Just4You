@@ -34,5 +34,12 @@ namespace Just4You.Modules.InputModule
             Input = Form.GetInput();
             Value = Form.GetValue();
         }
+
+        public Parameter(String name, InputConstraint[] constraints) : this(name)
+        {
+            foreach (InputConstraint constraint in constraints)
+                if (constraint.IsValid(Value))
+                    Aborted = true;
+        }
     }
 }
