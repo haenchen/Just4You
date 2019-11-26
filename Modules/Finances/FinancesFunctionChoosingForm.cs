@@ -26,10 +26,10 @@ namespace Just4You.Modules.Finances
             var interest = new Parameter("Zinssatz (in %)", new InputConstraint[] { new PositiveConstraint() });
             if (ParamAborted(interest))
                 return;
-            output.Add("Kreditbetrag: " + amount.Value.ToString().Replace('.', ',') + " €");
+            output.Add("Kreditbetrag: " + FormatMoney(amount.Value) + " €");
             output.Add("Zinssatz: " + interest.Value.ToString().Replace('.', ',') + " %");
             double result = amount.Value + (amount.Value * interest.Value / 100);
-            output.Add("Rückzahlungsbetrag: " + result.ToString().Replace('.', ',') + " €");
+            output.Add("Rückzahlungsbetrag: " + FormatMoney(result) + " €");
             this.Close();
         }
 
@@ -46,12 +46,12 @@ namespace Just4You.Modules.Finances
                 return;
             double interestAmount = Math.Round(amount.Value * (interest.Value / 100) * (count.Value / 360), 2);
             double totalAmount = amount.Value + interestAmount;
-            output.Add("Nettokreditbetrag: " + amount.Value.ToString().Replace('.', ',') + " €");
-            output.Add("Gesamtkreditbetrag: " + totalAmount.ToString().Replace('.', ',') + " €");
+            output.Add("Nettokreditbetrag: " + FormatMoney(amount.Value) + " €");
+            output.Add("Gesamtkreditbetrag: " + FormatMoney(totalAmount) + " €");
             output.Add("Laufzeit: " + count.Value.ToString().Replace('.', ',') + " Monate");
             output.Add("Jahreszinssatz: " + interest.Value.ToString().Replace('.', ',') + " %");
-            output.Add("Gesamtzins: " + interestAmount.ToString().Replace('.', ',') + " €");
-            output.Add("Ratenhöhe: " + Math.Round(totalAmount / count.Value, 2).ToString().Replace('.', ',') + " €");
+            output.Add("Gesamtzins: " + FormatMoney(interestAmount) + " €");
+            output.Add("Ratenhöhe: " + FormatMoney(Math.Round(totalAmount / count.Value, 2)) + " €");
             this.Close();
         }
 
@@ -72,11 +72,11 @@ namespace Just4You.Modules.Finances
                 this.Close();
                 return;
             }
-            output.Add("Kreditbetrag: " + amount.Value.ToString().Replace('.', ',') + " €");
-            output.Add("Ratenhöhe: " + payment.Value.ToString().Replace('.', ',') + " €");
+            output.Add("Kreditbetrag: " + FormatMoney(amount.Value) + " €");
+            output.Add("Ratenhöhe: " + FormatMoney(payment.Value) + " €");
             output.Add("Gesamtzinssatz: " + interest.Value.ToString().Replace('.', ',') + " %");
             double fullAmount = amount.Value + (amount.Value * interest.Value / 100);
-            output.Add("Gesamtzins: " + (fullAmount - amount.Value).ToString().Replace('.', ',') + " €");
+            output.Add("Gesamtzins: " + FormatMoney(fullAmount - amount.Value) + " €");
             double count = Math.Floor(fullAmount / payment.Value);
             double mod = fullAmount % payment.Value;
             if (mod == 0)
@@ -86,7 +86,7 @@ namespace Just4You.Modules.Finances
             else
             {
                 output.Add("Laufzeit: " + (count + 1).ToString().Replace('.', ',') + " Monate");
-                output.Add("Die letzte Rate beträgt: " + mod.ToString().Replace('.', ',') + " €.");
+                output.Add("Die letzte Rate beträgt: " + FormatMoney(mod) + " €.");
             }
             this.Close();
         }
