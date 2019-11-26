@@ -39,6 +39,10 @@ namespace Just4You
             return false;
         }
 
+        protected String FormatMoney(double val)
+        {
+            return String.Format("{0:0.00}", val).Replace('.', ',');
+        }
         public abstract String GetModuleText();
     }
 }

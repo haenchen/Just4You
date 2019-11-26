@@ -78,7 +78,7 @@ namespace Just4You.Modules.Percentage
             if (ParamAborted(percent))
                 return;
             double net = gross.Value / (1 + percent.Value / 100);
-            output.Add(gross.Value.ToString().Replace('.', ',') + " € Brutto sind " + net.ToString().Replace('.', ',') + " € Netto bei " + percent.Input + " % Steuer.");
+            output.Add(FormatMoney(gross.Value) + " € Brutto sind " + FormatMoney(net) + " € Netto bei " + percent.Input + " % Steuer.");
             this.Close();
         }
 
@@ -91,7 +91,7 @@ namespace Just4You.Modules.Percentage
             if (ParamAborted(percent))
                 return;
             double gross = net.Value + (net.Value * percent.Value / 100);
-            output.Add(net.Value.ToString().Replace('.', ',') + " € Netto sind " + gross.ToString().Replace('.', ',') + " € Brutto bei " + percent.Input + " % Steuer.");
+            output.Add(FormatMoney(net.Value) + " € Netto sind " + FormatMoney(gross) + " € Brutto bei " + percent.Input + " % Steuer.");
             this.Close();
         }
 
