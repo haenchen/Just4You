@@ -12,6 +12,7 @@ using Just4You.Modules.MathematicalFunctions;
 using Just4You.Modules.School;
 using Just4You.Modules.Informatics;
 using Just4You.Modules.Finances;
+using Just4You.Modules.Percentage;
 
 namespace Just4You
 {
@@ -26,7 +27,7 @@ namespace Just4You
             // Einfach die gewünschten Module eintragen
             modules.Add(1, typeof(MathematicalFunctionChoosingForm));
             modules.Add(2, typeof(SchoolForm));
-            modules.Add(3, typeof(FinancesFunctionChoosingForm));
+            modules.Add(3, typeof(InformaticsFunctionChoosingForm));
 
             btnModuleOne.Text = ((ModuleForm)Activator.CreateInstance(modules[1])).GetModuleText();
             btnModuleTwo.Text = ((ModuleForm)Activator.CreateInstance(modules[2])).GetModuleText();
