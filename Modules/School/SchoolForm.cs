@@ -18,7 +18,9 @@ namespace Just4You.Modules.School
             InitializeComponent();
         }
 
-        // Es tut mir Leid, Götter des guten Codes
+        /// <summary>
+        /// SchoolForm wird theoretisch nie geöffnet, daher überschreibt es DoModuleFunction.
+        /// </summary>
         public override void DoModuleFunction()
         {
             var count = new Parameter("Notenanzahl",

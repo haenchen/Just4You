@@ -13,6 +13,10 @@ namespace Just4You.Modules.Informatics
 {
     public partial class InformaticsFunctionChoosingForm : ModuleForm
     {
+
+        /// <summary>
+        /// Startzahlensystem und Einheit sind ´leider wenig intuitiv und werden deshalb als Tooltip angezeigt.
+        /// </summary>
         public InformaticsFunctionChoosingForm()
         {
             InitializeComponent();
@@ -35,6 +39,11 @@ namespace Just4You.Modules.Informatics
             return "Informationstechnik";
         }
 
+        /// <summary>
+        /// Berechnet die Dateigröße eines Bilders mit den angegebenen Parametern.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnImage_Click(object sender, EventArgs e)
         {
             var width = new Parameter("Breite", new InputConstraint[] { new IntegerConstraint() });
@@ -79,6 +88,7 @@ namespace Just4You.Modules.Informatics
                 }
                 else
                 {
+                    // Bilder sollten nicht über eine Quadrilliarde bit groß sein
                     GlobalLogger.addError("Errechnete Dateigröße zu groß.");
                     this.Close();
                     return;
@@ -87,6 +97,11 @@ namespace Just4You.Modules.Informatics
             this.Close();
         }
 
+        /// <summary>
+        /// Der eingegebene Wert soll von der Eingegeben Einheit in andere Einheiten umgerechnet werden.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnUnits_Click(object sender, EventArgs e)
         {
             var startUnit = new Parameter("Ausgangseinheit", new InputConstraint[] { new IntegerConstraint() });
@@ -111,12 +126,15 @@ namespace Just4You.Modules.Informatics
             double value = inputValue.Value;
             double tmpVal = value;
             int tmpInt = unit + 1;
+            // Zuerst in alle höheren Einheiten umrechnen
             while (tmpVal > 1024)
             {
                 tmpVal /= 1024;
                 output.Add(tmpVal.ToString().Replace(".", ",") + " " + GetUnit(tmpInt++));
             }
             output.Add(value.ToString().Replace(".", ",") + " " + GetUnit(unit));
+            // Danach in alle Einheiten umrechnen die kleiner sind als die Starteingabe
+            // Die Logik ist etwas funky, das liegt daran, dass kleinere Indizes mit kleineren Einheitsbezeichnung, aber größeren Einheiten korrelieren
             for (int i = unit - 1; i >= 0; --i)
             {
                 tmpVal = value;
@@ -131,6 +149,11 @@ namespace Just4You.Modules.Informatics
             this.Close();
         }
 
+        /// <summary>
+        /// Umrechnung von Zahlensystemen.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnNumber_Click(object sender, EventArgs e)
         {
             var startSystem = new Parameter("Startsystem", new InputConstraint[] { new IntegerConstraint() });
@@ -183,6 +206,11 @@ namespace Just4You.Modules.Informatics
             }
         }
 
+        /// <summary>
+        /// Wandelt die Zahl in das Jeweilige zahlensystem um
+        /// </summary>
+        /// <param name="i">Das Zahlensystem in das umgewandelt werden soll.</param>
+        /// <param name="val">Der Wert der Umgewandelt werden soll.</param>
         private void HandleSystem(int i, int val)
         {
             String result = "";
