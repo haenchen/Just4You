@@ -21,6 +21,9 @@ namespace Just4You.Modules.BasicCalculator
             _initialized = true;
         }
 
+        /// <summary>
+        /// Reguläre Ausdrücke anlegen um Eingaben zum richtigen Token zu machen.
+        /// </summary>
         private static void fillDict()
         {
             matches = new Dictionary<TokenType, Regex>();
@@ -31,6 +34,7 @@ namespace Just4You.Modules.BasicCalculator
             matches.Add(TokenType.T_MOD, new Regex("^(%)"));
             matches.Add(TokenType.T_PAROPEN, new Regex("^[(]"));
             matches.Add(TokenType.T_PARCLOSE, new Regex("^[)]"));
+            // Reihenfolge von Float und Int ist wichtig, da sonst vor und nach dem Komma als separate Integer gematcht werden.
             matches.Add(TokenType.T_FLOAT, new Regex("^[-]?\\d*[.,]?\\d+"));
             matches.Add(TokenType.T_INT, new Regex("^-?\\d+"));
             matches.Add(TokenType.T_WHITESPACE, new Regex("^\\s+"));
@@ -41,6 +45,7 @@ namespace Just4You.Modules.BasicCalculator
             Initialize();
             List<Token> tokens = new List<Token>();
             int offset = 0;
+            // Einfach den String durchgehen und die Eingaben den richtigen Tokens zuordnen
             while (offset < input.Length)
             {
                 String current = input.Substring(offset);
@@ -62,6 +67,7 @@ namespace Just4You.Modules.BasicCalculator
                 }
             }
 
+            // Das sollte theoretisch nicht möglich sein.
             throw new Exception("Unmatched Token");
         }
     }

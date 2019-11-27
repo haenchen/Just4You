@@ -26,6 +26,11 @@ namespace Just4You.Modules.BasicCalculator
             return Node;
         }
 
+        /// <summary>
+        /// Shunting-Yard-Algorithmus von Dijkstra
+        /// </summary>
+        /// <param name="tokens"></param>
+        /// <returns></returns>
         private static Stack<Token> ReorderTokensToReversePolishNotation(List<Token> tokens)
         {
             var Stack = new Stack<Token>();
@@ -83,7 +88,15 @@ namespace Just4You.Modules.BasicCalculator
 
             return Stack;
         }
-        
+
+        /// <summary>
+        /// Aus dem Tokenstack lässt sich ein abstrakter Syntaxbaum bauen.
+        /// Für den AST sind Klammern irrelevant.
+        /// Das wurde eigentlich nur aus eigenem Interesse daran so umgesetzt.
+        /// Der Scalar ist die Wurzelnode und kann rekursiv den ganzen Baum ausrechnen.
+        /// </summary>
+        /// <param name="TokenStack"></param>
+        /// <returns></returns>
         private static NodeInterface CreateAst(Stack<Token> TokenStack)
         {
             var astStack = new Stack<NodeInterface>();
