@@ -55,6 +55,16 @@ namespace Just4You
             BaseModuleFunction(1);
         }
 
+        private void btnModuleTwo_Click(object sender, EventArgs e)
+        {
+            BaseModuleFunction(2);
+        }
+
+        private void btnModuleThree_Click(object sender, EventArgs e)
+        {
+            BaseModuleFunction(3);
+        }
+        
         private void BaseModuleFunction(int index)
         {
             var form = (ModuleForm)Activator.CreateInstance(modules[index]);
@@ -66,16 +76,6 @@ namespace Just4You
             }
             var output = form.GetOutput();
             AddLines(output);
-        }
-
-        private void btnModuleTwo_Click(object sender, EventArgs e)
-        {
-            BaseModuleFunction(2);
-        }
-
-        private void btnModuleThree_Click(object sender, EventArgs e)
-        {
-            BaseModuleFunction(3);
         }
     }
 }

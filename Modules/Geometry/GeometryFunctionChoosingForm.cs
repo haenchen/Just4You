@@ -11,6 +11,10 @@ using Just4You.Modules.InputModule;
 
 namespace Just4You.Modules.Geometry
 {
+
+    /// <summary>
+    /// Da die Verwendung von Math Funktionen gestattet ist, ist dieses Modul trivial.
+    /// </summary>
     public partial class GeometryFunctionChoosingForm : ModuleForm
     {
         public GeometryFunctionChoosingForm()
@@ -18,6 +22,11 @@ namespace Just4You.Modules.Geometry
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Dreieck anhand von Zwei Seiten und einem Winkel berechnen.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnTriangle_Click(object sender, EventArgs e)
         {
             var sideA = new Parameter("Seite a", new InputConstraint[] { new PositiveConstraint(), new NonZeroConstraint() });
@@ -32,6 +41,7 @@ namespace Just4You.Modules.Geometry
             double a = sideA.Value;
             double b = sideB.Value;
             double actualAngle = angle.Value % 180;
+            // Cosinussatz
             double c = Math.Pow(a, 2) + Math.Pow(b, 2) - (2 * a * b * Math.Cos(actualAngle));
             double alpha = Math.Acos((-Math.Pow(a, 2) / 2) + (Math.Pow(b,2) / 2) + (Math.Pow(c, 2) / 2));
             double beta = 180 - actualAngle - alpha;
@@ -50,6 +60,11 @@ namespace Just4You.Modules.Geometry
             this.Close();
         }
 
+        /// <summary>
+        ///  Parallelogramm anhand von zwei Seiten und einem Winkel berechnen.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             var sideA = new Parameter("Seite a", new InputConstraint[] { new PositiveConstraint(), new NonZeroConstraint() });
@@ -84,6 +99,11 @@ namespace Just4You.Modules.Geometry
             this.Close();
         }
 
+        /// <summary>
+        /// Kreis anhand des Radius berechnen.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCircle_Click(object sender, EventArgs e)
         {
             var radius = new Parameter("Radius", new InputConstraint[] { new PositiveConstraint(), new NonZeroConstraint() });

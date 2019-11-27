@@ -18,6 +18,11 @@ namespace Just4You.Modules.Finances
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Kredit mit einmaliger Rückzahlung
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOneTimePayment_Click(object sender, EventArgs e)
         {
             var amount = new Parameter("Kreditbetrag", new InputConstraint[] { new PositiveConstraint(), new NonZeroConstraint() });
@@ -33,6 +38,11 @@ namespace Just4You.Modules.Finances
             this.Close();
         }
 
+        /// <summary>
+        /// Kredit bei dem die Laufzeit angegeben wird und die Raten berechnet werden.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnNumberOfPayments_Click(object sender, EventArgs e)
         {
             var amount = new Parameter("Kreditbetrag", new InputConstraint[] { new PositiveConstraint(), new NonZeroConstraint() });
@@ -44,6 +54,7 @@ namespace Just4You.Modules.Finances
             var interest = new Parameter("Jahreszinssatz (in %)", new InputConstraint[] { new PositiveConstraint() });
             if (ParamAborted(interest))
                 return;
+            // Zinsformel
             double interestAmount = Math.Round(amount.Value * (interest.Value / 100) * (count.Value / 360), 2);
             double totalAmount = amount.Value + interestAmount;
             output.Add("Nettokreditbetrag: " + FormatMoney(amount.Value) + " €");
@@ -55,6 +66,11 @@ namespace Just4You.Modules.Finances
             this.Close();
         }
 
+        /// <summary>
+        /// Kredit bei dem die Raten gegeben sind und bei dem die Laufzeit errechnet wird.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnPaymentAmount_Click(object sender, EventArgs e)
         {
             var amount = new Parameter("Kreditbetrag", new InputConstraint[] { new PositiveConstraint(), new NonZeroConstraint() });

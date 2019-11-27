@@ -18,6 +18,11 @@ namespace Just4You.Modules.Percentage
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Wert prozentual verringern.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSubPercent_Click(object sender, EventArgs e)
         {
             var value = new Parameter("Wert");
@@ -30,6 +35,11 @@ namespace Just4You.Modules.Percentage
             this.Close();
         }
 
+        /// <summary>
+        /// Wert prozentual erhöhen.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddPercent_Click(object sender, EventArgs e)
         {
             var value = new Parameter("Wert");
@@ -42,6 +52,11 @@ namespace Just4You.Modules.Percentage
             this.Close();
         }
 
+        /// <summary>
+        /// Prozentualen Anteil ermitteln.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnPercentOf_Click(object sender, EventArgs e)
         {
             var value = new Parameter("Wert");
@@ -54,6 +69,11 @@ namespace Just4You.Modules.Percentage
             this.Close();
         }
 
+        /// <summary>
+        /// Prozentualen Anteil zweier Werte ermitteln.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnPercentage_Click(object sender, EventArgs e)
         {
             var valueOne = new Parameter("Wert");
@@ -69,6 +89,11 @@ namespace Just4You.Modules.Percentage
             this.Close();
         }
 
+        /// <summary>
+        /// Brutto zu Netto umrechnen.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGrossToNet_Click(object sender, EventArgs e)
         {
             var gross = new Parameter("Brutto", new InputConstraint[] { new PositiveConstraint(), new NonZeroConstraint() });
@@ -82,6 +107,11 @@ namespace Just4You.Modules.Percentage
             this.Close();
         }
 
+        /// <summary>
+        /// Netto zu Brutto umrechnen.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnNetToGross_Click(object sender, EventArgs e)
         {
             var net = new Parameter("Netto", new InputConstraint[] { new PositiveConstraint(), new NonZeroConstraint() });
