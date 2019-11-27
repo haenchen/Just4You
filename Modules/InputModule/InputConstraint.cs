@@ -11,17 +11,23 @@ namespace Just4You.Modules.InputModule
         bool IsValid(double x);
     }
 
+    /// <summary>
+    /// Prüft ob ein eingegebener Wert größer oder gleich Null ist.
+    /// </summary>
     public class PositiveConstraint : InputConstraint
     { 
         public bool IsValid(double x)
         {
-            bool result = x > 0;
+            bool result = x >= 0;
             if (!result)
                 GlobalLogger.addError("Nur positive Eingaben sind für diese Operation gestattet.");
             return result;
         }
     }
 
+    /// <summary>
+    /// Prüft ob ein eingegebener Wert ungleich Null ist.
+    /// </summary>
     public class NonZeroConstraint : InputConstraint
     {
         public bool IsValid(double x)
@@ -33,6 +39,9 @@ namespace Just4You.Modules.InputModule
         }
     }
 
+    /// <summary>
+    /// Prüft ob ein eingegebener Wert eine ganze Zahl ist.
+    /// </summary>
     public class IntegerConstraint : InputConstraint
     {
         public bool IsValid(double x)

@@ -11,6 +11,9 @@ using Just4You.Modules.InputModule;
 
 namespace Just4You.Modules.MathematicalFunctions
 {
+    /// <summary>
+    /// Nutzung von Math functions wurde gestattet, da die Gruppe mehrere male zerbrochen ist.
+    /// </summary>
     public partial class MathematicalFunctionChoosingForm : ModuleForm
     {
         public MathematicalFunctionChoosingForm()
@@ -18,6 +21,11 @@ namespace Just4You.Modules.MathematicalFunctions
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Fakutltät eines Wertes ermitteln.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnFactorial_Click(object sender, EventArgs e)
         {
             var param = new Parameter("Fakultät", new InputConstraint[] { new IntegerConstraint(), new PositiveConstraint() });
@@ -33,6 +41,11 @@ namespace Just4You.Modules.MathematicalFunctions
             this.Close();
         }
 
+        /// <summary>
+        /// Potenz ermitteln.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnExponentiation_Click(object sender, EventArgs e)
         {
             var exponentiationBase = new Parameter("Basis");
@@ -46,11 +59,22 @@ namespace Just4You.Modules.MathematicalFunctions
             this.Close();
         }
 
+        /// <summary>
+        /// n-te Wurzel berechnen.
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="n"></param>
+        /// <returns></returns>
         private double NthRoot(double x, int n)
         {
             return Math.Pow(x, 1.0 / n);
         }
 
+        /// <summary>
+        /// n-te Wurzel ermitteln;
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnRoot_Click(object sender, EventArgs e)
         {
             var index = new Parameter("Wurzelexponent", new InputConstraint[] { new IntegerConstraint() });
@@ -64,6 +88,11 @@ namespace Just4You.Modules.MathematicalFunctions
             this.Close();
         }
 
+        /// <summary>
+        /// Primzahlen zwischen zwei Grenzwerten ermitteln.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnPrimes_Click(object sender, EventArgs e)
         {
             var lower = new Parameter("Untere Grenze");
@@ -77,6 +106,7 @@ namespace Just4You.Modules.MathematicalFunctions
                 GlobalLogger.addError("Die untere Intervalgrenze muss kleiner sein als die obere Intervalgrenze.");
                 this.Close();
             }
+            // Nichtganzzahlige Eingaben sind gestattet, für die Schleife ist aber ein int besser.
             int actualLower = lower.Value % 1 == 0
                 ? (int)lower.Value
                 : (int)lower.Value + 1;

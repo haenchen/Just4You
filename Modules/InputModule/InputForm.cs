@@ -124,6 +124,11 @@ namespace Just4You.Modules.InputModule
             textInput.Text += " - ";
         }
 
+        /// <summary>
+        /// Leerzeichen sollen auch gelöscht werden, weil der Knopfdruck sonst unter Umständen nichts bewirkt.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (textInput.TextLength < 1)
@@ -150,6 +155,11 @@ namespace Just4You.Modules.InputModule
             this.Close();
         }
 
+        /// <summary>
+        /// Jede Eingabe wird durch den Grundrechner gejagt.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEnter_Click(object sender, EventArgs e)
         {
             result = BasicCalculator.BasicCalculator.Evaluate(textInput.Text);
@@ -157,12 +167,14 @@ namespace Just4You.Modules.InputModule
             if (!GlobalLogger.NewErrorsExist())
             {
                 double inputNumber;
+                // Wenn nur eine Zahl eingegeben wurde, kann sie direkt als Input eingetragen werden
                 if (Double.TryParse(textInput.Text.Replace(",", "."), out inputNumber))
                 {
                     input = inputNumber.ToString();
                 }
                 else
                 {
+                    // Komplexere Eingaben werden geklammert angezeigt.
                     input = "(" + textInput.Text + ")";
                 }
                 textInput.Text = result.ToString().Replace(".", ",");
@@ -171,6 +183,11 @@ namespace Just4You.Modules.InputModule
             btnAbort_Click(sender, e);
         }
 
+        /// <summary>
+        /// Öffnet ein neues Eingabefenster für Nebenrechnungen und schreibt den Wert dann in die Textbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSidecalc_Click(object sender, EventArgs e)
         {
             var SideForm = new InputForm();
