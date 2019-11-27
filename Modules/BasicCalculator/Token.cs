@@ -43,6 +43,7 @@ namespace Just4You.Modules.BasicCalculator
 
         public bool IsOperator()
         {
+            // Klammern sind unäre Operatoren
             if (this.type == TokenType.T_ADD ||
                 this.type == TokenType.T_DIV ||
                 this.type == TokenType.T_MUL ||
