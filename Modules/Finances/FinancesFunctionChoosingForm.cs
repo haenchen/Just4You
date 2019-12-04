@@ -55,7 +55,7 @@ namespace Just4You.Modules.Finances
             if (ParamAborted(interest))
                 return;
             // Zinsformel
-            double interestAmount = Math.Round(amount.Value * (interest.Value / 100) * (count.Value / 360), 2);
+            double interestAmount = Math.Round(amount.Value * (interest.Value / 100) * (count.Value / 12), 2);
             double totalAmount = amount.Value + interestAmount;
             output.Add("Nettokreditbetrag: " + FormatMoney(amount.Value) + " €");
             output.Add("Gesamtkreditbetrag: " + FormatMoney(totalAmount) + " €");
