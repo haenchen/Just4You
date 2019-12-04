@@ -101,7 +101,7 @@ namespace Just4You.Modules.MathematicalFunctions
             var upper = new Parameter("Obere Grenze");
             if (ParamAborted(upper))
                 return;
-            if (lower.Value <= upper.Value)
+            if (lower.Value >= upper.Value)
             {
                 GlobalLogger.addError("Die untere Intervalgrenze muss kleiner sein als die obere Intervalgrenze.");
                 this.Close();
